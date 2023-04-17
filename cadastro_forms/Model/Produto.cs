@@ -83,36 +83,51 @@ namespace ModelProduto
             return db.Produtos.Find(Id);
         }
 
-        public static void UpdateProdutoNome(int Id, string Nome)
+        public static Produto UpdateProduto(int Id, string Nome, string Descricao, int Quantidade, decimal Preco)
+        {
+            DataBase db = new DataBase();
+            Produto produto = db.Produtos.Find(Id);
+            produto.Nome = Nome;
+            produto.Descricao = Descricao;
+            produto.Quantidade = Quantidade;
+            produto.Preco = Preco;
+            db.SaveChanges();
+            return produto;
+        }
+        public static Produto UpdateProdutoNome(int Id, string Nome)
         {
             DataBase db = new DataBase();
             Produto produto = db.Produtos.Find(Id);
             produto.Nome = Nome;
             db.SaveChanges();
+            return produto;
         }
 
-        public static void UpdateProdutoDescricao(int Id, string Descricao)
+        public static Produto UpdateProdutoDescricao(int Id, string Descricao)
         {
             DataBase db = new DataBase();
             Produto produto = db.Produtos.Find(Id);
             produto.Descricao = Descricao;
             db.SaveChanges();
+            return produto;
         }
 
-        public static void UpdateProdutoQuantidade(int Id, int Quantidade)
+        public static Produto UpdateProdutoQuantidade(int Id, int Quantidade)
         {
             DataBase db = new DataBase();
             Produto produto = db.Produtos.Find(Id);
             produto.Quantidade = Quantidade;
             db.SaveChanges();
+            return produto;
         }
 
-        public static void UpdateProdutoPreco(int Id, decimal Preco)
+        public static Produto UpdateProdutoPreco(int Id, decimal Preco)
         {
             DataBase db = new DataBase();
             Produto produto = db.Produtos.Find(Id);
             produto.Preco = Preco;
             db.SaveChanges();
+            return produto;
         }
 
         public static void DeleteProduto(int Id)

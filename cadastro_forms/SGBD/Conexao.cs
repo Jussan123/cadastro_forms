@@ -9,6 +9,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Design;
 using ModelProduto;
 using System.Data.SqlClient;
 using System.Linq;
