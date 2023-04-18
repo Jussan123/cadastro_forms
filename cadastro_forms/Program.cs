@@ -19,12 +19,9 @@ namespace cadastro_forms
         static void Main()
         {
 			Application.EnableVisualStyles();
-            Application.Run(new FormProduto());
+            Application.Run(new FormMenu());
+
         }
     }
 
-	public class FormularioCadastro : Form 
-    {
-        
-	}
 }

@@ -28,7 +28,7 @@ namespace cadastro_forms.View.Forms.Produto
             lblTituloProduto.Text = "Cadastro de Produto";
             lblTituloProduto.Location = new Point(10, 10);
             lblTituloProduto.Size = new Size(200, 20);
-            lblTituloProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            lblTituloProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             lblTituloProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTituloProduto);
 
@@ -36,14 +36,14 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtNomeProduto.Text = "Nome:";
             lblTxtNomeProduto.Location = new Point(10, 40);
             lblTxtNomeProduto.Size = new Size(200, 20);
-            lblTxtNomeProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            lblTxtNomeProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             lblTxtNomeProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTxtNomeProduto);
 
             tbNomeProduto = new TextBox();
             tbNomeProduto.Location = new Point(10, 60);
             tbNomeProduto.Size = new Size(200, 20);
-            tbNomeProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            tbNomeProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             tbNomeProduto.ForeColor = Color.Black;
             this.Controls.Add(tbNomeProduto);
 
@@ -51,14 +51,14 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtDescricaoProduto.Text = "Descrição:";
             lblTxtDescricaoProduto.Location = new Point(10, 90);
             lblTxtDescricaoProduto.Size = new Size(200, 20);
-            lblTxtDescricaoProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            lblTxtDescricaoProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             lblTxtDescricaoProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTxtDescricaoProduto);
 
             tbDescricaoProduto = new TextBox();
             tbDescricaoProduto.Location = new Point(10, 110);
             tbDescricaoProduto.Size = new Size(200, 20);
-            tbDescricaoProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            tbDescricaoProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             tbDescricaoProduto.ForeColor = Color.Black;
             this.Controls.Add(tbDescricaoProduto);
 
@@ -66,46 +66,50 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtPrecoProduto.Text = "Preço:";
             lblTxtPrecoProduto.Location = new Point(10, 140);
             lblTxtPrecoProduto.Size = new Size(200, 20);
-            lblTxtPrecoProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            lblTxtPrecoProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             lblTxtPrecoProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTxtPrecoProduto);
 
             tbPrecoProduto = new TextBox();
             tbPrecoProduto.Location = new Point(10, 160);
             tbPrecoProduto.Size = new Size(200, 20);
-            tbPrecoProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            tbPrecoProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             tbPrecoProduto.ForeColor = Color.Black;
             this.Controls.Add(tbPrecoProduto);
 
             lblTxtQuantidadeProduto = new Label();
             lblTxtQuantidadeProduto.Text = "Quantidade:";
             lblTxtQuantidadeProduto.Location = new Point(10, 190);
-
             lblTxtQuantidadeProduto.Size = new Size(200, 20);
-            lblTxtQuantidadeProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            lblTxtQuantidadeProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             lblTxtQuantidadeProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTxtQuantidadeProduto);
 
             tbQuantidadeProduto = new TextBox();
             tbQuantidadeProduto.Location = new Point(10, 210);
             tbQuantidadeProduto.Size = new Size(200, 20);
-            tbQuantidadeProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            tbQuantidadeProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             tbQuantidadeProduto.ForeColor = Color.Black;
             this.Controls.Add(tbQuantidadeProduto);
 
             btnSalvarProduto = new Button();
             btnSalvarProduto.Text = "Salvar";
             btnSalvarProduto.Location = new Point(10, 240);
-            btnSalvarProduto.Size = new Size(90, 20);
-            btnSalvarProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            btnSalvarProduto.Size = new Size(90, 25);
+            btnSalvarProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnSalvarProduto.ForeColor = Color.Black;
+            btnSalvarProduto.Click += (sender, e) => {
+                SalvarProduto();
+                LimpaTela();
+            };
             this.Controls.Add(btnSalvarProduto);
+
 
             btnCancelarProduto = new Button();
             btnCancelarProduto.Text = "Cancelar";
             btnCancelarProduto.Location = new Point(120, 240);
-            btnCancelarProduto.Size = new Size(90, 20);
-            btnCancelarProduto.Font = new Font("Arial", 12, FontStyle.Bold);
+            btnCancelarProduto.Size = new Size(90, 25);
+            btnCancelarProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnCancelarProduto.ForeColor = Color.Black;
             btnCancelarProduto.Click += (sender, e) => {
                 this.Close();
@@ -113,12 +117,12 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnCancelarProduto);
 
             this.Text = "Cadastro de Produto";
-            this.Size = new Size(300, 300);
+            this.Size = new Size(300, 320);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-        }
+       } 
 
 
         public FormProduto(){
@@ -126,13 +130,68 @@ namespace cadastro_forms.View.Forms.Produto
         }
 
         public void SalvarProduto(){
-            ModelProduto.Produto produto = new ModelProduto.Produto();
-            produto.Nome = tbNomeProduto.Text;
-            produto.Descricao = tbDescricaoProduto.Text;
-            produto.Preco = Convert.ToDecimal(tbPrecoProduto.Text);
-            produto.Quantidade = Convert.ToInt32(tbQuantidadeProduto.Text);
+            // Lita de strings para guardar os erros
+            List<string> erros = new List<string>();
 
-            ControllerProduto.Produto.CadastraProduto(produto.Nome, produto.Descricao, produto.Preco.ToString(), produto.Quantidade.ToString());
+
+
+            // Validação do nome
+            if (String.IsNullOrEmpty(tbNomeProduto.Text)){
+                erros.Add("O nome do produto é obrigatório");
+            }
+
+            if (String.IsNullOrEmpty(tbDescricaoProduto.Text)){
+                erros.Add("A descrição do produto é obrigatória");
+            }
+
+            if (String.IsNullOrEmpty(tbPrecoProduto.Text)){
+                erros.Add("O preço do produto deve ser maior que zero e não pode ser vazia");
+            }
+
+            if (String.IsNullOrEmpty(tbQuantidadeProduto.Text)){
+                erros.Add("A quantidade do produto deve ser maior que zero e não pode ser vazia");
+            }
+
+            if(erros.Count() == 0){
+                Console.WriteLine("Sem erros");
+
+                ModelProduto.Produto produto = new ModelProduto.Produto();
+                produto.Nome = tbNomeProduto.Text;
+                produto.Descricao = tbDescricaoProduto.Text;
+                try{
+                    produto.Quantidade = Convert.ToInt32(tbQuantidadeProduto.Text);
+                    produto.Preco = Convert.ToDecimal(tbPrecoProduto.Text);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Erro ao converter os valores: " + ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                ControllerProduto.Produto.CadastraProduto(produto.Nome, produto.Descricao, produto.Preco.ToString(), produto.Quantidade.ToString());
+
+                MessageBox.Show("Produto cadastrado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LimpaTela();
+
+            }
+            else
+            {
+                Console.WriteLine("erros:");
+                string mensagem = "";
+                foreach(string erro in erros){
+                    mensagem += erro + "\n";
+                    Console.WriteLine(erro);
+                }
+                MessageBox.Show(mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public void LimpaTela(){
+            tbDescricaoProduto.Text ="";
+            tbNomeProduto.Text = "";
+            tbPrecoProduto.Text = "";
+            tbQuantidadeProduto.Text = "";
+
         }
 
     }
