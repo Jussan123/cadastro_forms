@@ -18,20 +18,20 @@ namespace ModelProduto
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public int Quantidade { get; set; }
         public decimal Preco { get; set; }
+        public int Quantidade { get; set; }
         public DateTime DataCadastro { get; set; }
     
         public Produto()
         {
         }
 
-        public Produto(string Nome, string Descricao, int Quantidade, decimal Preco)
+        public Produto(string Nome, string Descricao, decimal Preco, int Quantidade)
         {
             this.Nome = Nome;
             this.Descricao = Descricao;
-            this.Quantidade = Quantidade;
             this.Preco = Preco;
+            this.Quantidade = Quantidade;
             this.DataCadastro = DateTime.UtcNow;
 
             DataBase db = new DataBase();
@@ -64,7 +64,7 @@ namespace ModelProduto
 
         public override string ToString()
         {
-            return "Produto: Id: " + this.Id + " - Nome: " + this.Nome + " - Descrição: " + this.Descricao + " - Quantidade: " + this.Quantidade + " - Preço: " + this.Preco + " - Data Criação" + this.DataCadastro;
+            return "Produto: Id: " + this.Id + " - Nome: " + this.Nome + " - Descrição: " + this.Descricao + " - Preço: " + this.Preco + " - Quantidade: " + this.Quantidade + " - Data Criação" + this.DataCadastro;
         }
 
         // ----------- CRUD -------------
@@ -83,14 +83,14 @@ namespace ModelProduto
             return db.Produtos.Find(Id);
         }
 
-        public static Produto UpdateProduto(int Id, string Nome, string Descricao, int Quantidade, decimal Preco)
+        public static Produto UpdateProduto(int Id, string Nome, string Descricao, decimal Preco, int Quantidade)
         {
             DataBase db = new DataBase();
             Produto produto = db.Produtos.Find(Id);
             produto.Nome = Nome;
             produto.Descricao = Descricao;
-            produto.Quantidade = Quantidade;
             produto.Preco = Preco;
+            produto.Quantidade = Quantidade;
             db.SaveChanges();
             return produto;
         }

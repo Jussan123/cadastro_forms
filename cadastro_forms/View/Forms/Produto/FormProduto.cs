@@ -28,7 +28,7 @@ namespace cadastro_forms.View.Forms.Produto
             lblTituloProduto.Text = "Cadastro de Produto";
             lblTituloProduto.Location = new Point(10, 10);
             lblTituloProduto.Size = new Size(200, 20);
-            lblTituloProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            lblTituloProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             lblTituloProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTituloProduto);
 
@@ -36,14 +36,14 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtNomeProduto.Text = "Nome:";
             lblTxtNomeProduto.Location = new Point(10, 40);
             lblTxtNomeProduto.Size = new Size(200, 20);
-            lblTxtNomeProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            lblTxtNomeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             lblTxtNomeProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTxtNomeProduto);
 
             tbNomeProduto = new TextBox();
             tbNomeProduto.Location = new Point(10, 60);
             tbNomeProduto.Size = new Size(200, 20);
-            tbNomeProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            tbNomeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             tbNomeProduto.ForeColor = Color.Black;
             this.Controls.Add(tbNomeProduto);
 
@@ -51,14 +51,14 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtDescricaoProduto.Text = "Descrição:";
             lblTxtDescricaoProduto.Location = new Point(10, 90);
             lblTxtDescricaoProduto.Size = new Size(200, 20);
-            lblTxtDescricaoProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            lblTxtDescricaoProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             lblTxtDescricaoProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTxtDescricaoProduto);
 
             tbDescricaoProduto = new TextBox();
             tbDescricaoProduto.Location = new Point(10, 110);
             tbDescricaoProduto.Size = new Size(200, 20);
-            tbDescricaoProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            tbDescricaoProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             tbDescricaoProduto.ForeColor = Color.Black;
             this.Controls.Add(tbDescricaoProduto);
 
@@ -66,14 +66,14 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtPrecoProduto.Text = "Preço:";
             lblTxtPrecoProduto.Location = new Point(10, 140);
             lblTxtPrecoProduto.Size = new Size(200, 20);
-            lblTxtPrecoProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            lblTxtPrecoProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             lblTxtPrecoProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTxtPrecoProduto);
 
             tbPrecoProduto = new TextBox();
             tbPrecoProduto.Location = new Point(10, 160);
             tbPrecoProduto.Size = new Size(200, 20);
-            tbPrecoProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            tbPrecoProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             tbPrecoProduto.ForeColor = Color.Black;
             this.Controls.Add(tbPrecoProduto);
 
@@ -81,14 +81,14 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtQuantidadeProduto.Text = "Quantidade:";
             lblTxtQuantidadeProduto.Location = new Point(10, 190);
             lblTxtQuantidadeProduto.Size = new Size(200, 20);
-            lblTxtQuantidadeProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            lblTxtQuantidadeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             lblTxtQuantidadeProduto.ForeColor = Color.Black;
             this.Controls.Add(lblTxtQuantidadeProduto);
 
             tbQuantidadeProduto = new TextBox();
             tbQuantidadeProduto.Location = new Point(10, 210);
             tbQuantidadeProduto.Size = new Size(200, 20);
-            tbQuantidadeProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            tbQuantidadeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             tbQuantidadeProduto.ForeColor = Color.Black;
             this.Controls.Add(tbQuantidadeProduto);
 
@@ -96,7 +96,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnSalvarProduto.Text = "Salvar";
             btnSalvarProduto.Location = new Point(10, 240);
             btnSalvarProduto.Size = new Size(90, 25);
-            btnSalvarProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            btnSalvarProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnSalvarProduto.ForeColor = Color.Black;
             btnSalvarProduto.Click += (sender, e) => {
                 SalvarProduto();
@@ -109,7 +109,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnCancelarProduto.Text = "Cancelar";
             btnCancelarProduto.Location = new Point(120, 240);
             btnCancelarProduto.Size = new Size(90, 25);
-            btnCancelarProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            btnCancelarProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnCancelarProduto.ForeColor = Color.Black;
             btnCancelarProduto.Click += (sender, e) => {
                 this.Close();
@@ -186,12 +186,12 @@ namespace cadastro_forms.View.Forms.Produto
             }
         }
 
-        public void LimpaTela(){
+        public void LimpaTela()
+        {
             tbDescricaoProduto.Text ="";
             tbNomeProduto.Text = "";
             tbPrecoProduto.Text = "";
             tbQuantidadeProduto.Text = "";
-
         }
 
     }

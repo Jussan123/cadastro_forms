@@ -22,11 +22,11 @@ namespace ControllerProduto
             string Preco,
             string Quantidade)
         {
-            int precoConvert = 0;
+            Decimal precoConvert = 0;
             int quantidadeConvert = 0;
             try 
             {
-                precoConvert = int.Parse(Preco);
+                precoConvert = Decimal.Parse(Preco);
                 quantidadeConvert = int.Parse(Quantidade);
             } catch (Exception) {
                 throw new Exception("Preço ou quantidade inválidos");
@@ -36,85 +36,68 @@ namespace ControllerProduto
         }
         
         public static ModelProduto.Produto AlteraProduto(
-            string Id,
+            int Id,
             string Nome,
             string Descricao,
-            string preco,
-            string Quantidade)
+            Decimal Preco,
+            int Quantidade)
         {
             int idConvert = 0;
             int precoConvert = 0;
             int quantidadeConvert = 0;
             try 
             {
-                idConvert = int.Parse(Id);
-                precoConvert = int.Parse(preco);
-                quantidadeConvert = int.Parse(Quantidade);
-                return ModelProduto.Produto.UpdateProduto(idConvert, Nome, Descricao, precoConvert, quantidadeConvert);
+                return ModelProduto.Produto.UpdateProduto(Id, Nome, Descricao, Preco, Quantidade);
             } catch (Exception) {
                 throw new Exception("Id inválido");
             }
         }
 
-        public static ModelProduto.Produto AlteraNomeProduto(string Id, string Nome)
+        public static ModelProduto.Produto AlteraNomeProduto(int Id, string Nome)
         {
-            int idConvert = 0;
             try 
             {
-                idConvert = int.Parse(Id);
-                return ModelProduto.Produto.UpdateProdutoNome(idConvert, Nome);
+                return ModelProduto.Produto.UpdateProdutoNome(Id, Nome);
             } catch (Exception) {
                 throw new Exception("Id inválido");
             }
         }
 
-        public static ModelProduto.Produto AlteraDescricaoProduto(string Id, string Descricao)
+        public static ModelProduto.Produto AlteraDescricaoProduto(int Id, string Descricao)
         {
-            int idConvert = 0;
             try 
             {
-                idConvert = int.Parse(Id);
-                return ModelProduto.Produto.UpdateProdutoDescricao(idConvert, Descricao);
+                return ModelProduto.Produto.UpdateProdutoDescricao(Id, Descricao);
             } catch (Exception) {
                 throw new Exception("Id inválido");
             }
         }
 
-        public static ModelProduto.Produto AlteraPrecoProduto(string Id, string Preco)
+        public static ModelProduto.Produto AlteraPrecoProduto(int Id, decimal Preco)
         {
-            int idConvert = 0;
-            int precoConvert = 0;
             try 
             {
-                idConvert = int.Parse(Id);
-                precoConvert = int.Parse(Preco);
-                return ModelProduto.Produto.UpdateProdutoPreco(idConvert, precoConvert);
+                return ModelProduto.Produto.UpdateProdutoPreco(Id, Preco);
             } catch (Exception) {
                 throw new Exception("Id ou preço inválido");
             }
         }
 
-        public static ModelProduto.Produto AlteraQuantidadeProduto(string Id, string Quantidade)
+        public static ModelProduto.Produto AlteraQuantidadeProduto(int Id, int Quantidade)
         {
-            int idConvert = 0;
-            int quantidadeConvert = 0;
             try 
             {
-                idConvert = int.Parse(Id);
-                quantidadeConvert = int.Parse(Quantidade);
-                return ModelProduto.Produto.UpdateProdutoQuantidade(idConvert, quantidadeConvert);
+                return ModelProduto.Produto.UpdateProdutoQuantidade(Id, Quantidade);
             } catch (Exception) {
                 throw new Exception("Id ou quantidade inválido");
             }
         }
 
-        public static void ExcluiProduto(string Id)
+        public static void ExcluiProduto(int Id)
         {
-            int idConvert = 0;
             try
             {
-                idConvert = int.Parse(Id);
-                ModelProduto.Produto.DeleteProduto(idConvert);
+                ModelProduto.Produto.DeleteProduto(Id);
             } catch (Exception)
             {
                 throw new Exception("Id inválido");
@@ -126,13 +109,11 @@ namespace ControllerProduto
             return ModelProduto.Produto.ReadProdutos();
         }
 
-        public static ModelProduto.Produto BuscaProduto(string Id)
+        public static ModelProduto.Produto BuscaProduto(int Id)
         {
-            int idConvert = 0;
             try
             {
-                idConvert = int.Parse(Id);
-                return ModelProduto.Produto.ReadProduto(idConvert);
+                return ModelProduto.Produto.ReadProduto(Id);
             } catch (Exception)
             {
                 throw new Exception("Id inválido");

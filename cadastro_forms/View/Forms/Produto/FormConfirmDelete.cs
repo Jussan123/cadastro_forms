@@ -8,17 +8,16 @@ namespace cadastro_forms.View.Forms.Produto
         Button btnSim;
         Button btnNao;
 
-        public void IniciaFormularioDelete(){
-            string idProduto = "0";
+        public void IniciaFormularioDelete(int Id){
             btnSim = new Button();
             btnSim.Text = "Sim";
             btnSim.Location = new Point(10, 10);
             btnSim.Size = new Size(100, 20);
-            btnSim.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            btnSim.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnSim.ForeColor = Color.Blue;
             btnSim.Click += (sender, e) => {
                 ControllerProduto.Produto controllerProduto = new ControllerProduto.Produto();
-                ControllerProduto.Produto.ExcluiProduto(idProduto);
+                ControllerProduto.Produto.ExcluiProduto(Id);
                 this.Close();
             };
             this.Controls.Add(btnSim);
@@ -27,7 +26,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnNao.Text = "Não";
             btnNao.Location = new Point(10, 40);
             btnNao.Size = new Size(100, 20);
-            btnNao.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            btnNao.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnNao.ForeColor = Color.Red;
             btnNao.Click += (sender, e) => {
                 this.Close();
@@ -42,9 +41,9 @@ namespace cadastro_forms.View.Forms.Produto
             this.MinimizeBox = false;
         }
 
-        public FormConfirmDelete()
+        public FormConfirmDelete(int Id)
         {
-            IniciaFormularioDelete();
+            IniciaFormularioDelete(Id);
         }
     }
 }
