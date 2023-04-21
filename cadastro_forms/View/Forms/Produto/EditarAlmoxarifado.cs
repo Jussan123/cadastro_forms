@@ -117,7 +117,7 @@ namespace cadastro_forms.View.Forms.Produto
             IniciaFormulario();
         }
 
-        public SalvarProduto()
+        public void SalvarProduto()
         {
             try
             {
@@ -136,7 +136,7 @@ namespace cadastro_forms.View.Forms.Produto
             }
         }
 
-        public LimpaTela()
+        public void LimpaTela()
         {
             tbIdAlmoxarifado.Text = "";
             tbNomeAlmoxarifado.Text = "";
