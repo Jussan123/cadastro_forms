@@ -1,11 +1,9 @@
-using ControllerProduto;
-using ModelProduto;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Windows.Forms;
-using System.Data.SqlClient;
+/* Módulo Formulário de Lista de Produtos
+ * Descrição : Classe responsável pela criação do formulário de lista de produtos
+ * Autor : Jussan Igor da Silva
+ * Data : 19/04/2023
+ * Versão : 1.4
+ */
 
 
 namespace cadastro_forms.View.Forms.Produto
@@ -48,7 +46,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             var dataGridView = new DataGridView();
             dataGridView.Location = new Point(10, 40);
-            dataGridView.Size = new Size(800, 340);
+            dataGridView.Size = new Size(550, 340);
 
             // Configura as colunas da tabela
             dataGridView.Columns.Add("Id", "ID");
@@ -130,7 +128,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnRefresh);
 
             this.Text = "Lista de Produtos";
-            this.Size = new Size(900, 600);
+            this.Size = new Size(800, 500);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -149,6 +147,5 @@ namespace cadastro_forms.View.Forms.Produto
         public void AbrirForm(Form form){
             form.ShowDialog();
         }
-        
     }
 }

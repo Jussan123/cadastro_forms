@@ -6,23 +6,23 @@
 */
 
 
-using System;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Design;
 using ModelProduto;
  
-using System.Linq;
-
 namespace Conexao
 {
     public class DataBase : DbContext
     {
         public DbSet<Produto> Produtos { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<Almoxarifado> Almoxarifados { get; set; }
+  
+          protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Produto>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+            });
+            modelBuilder.Entity<Almoxarifado>(entity =>
             {
                 entity.HasKey(e => e.Id);
             });

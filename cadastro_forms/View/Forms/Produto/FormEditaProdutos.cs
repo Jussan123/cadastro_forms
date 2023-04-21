@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using ModelProduto;
-using ControllerProduto;
-
+/* Módulo Formulário para editar produtos
+ * Formulário para editar produtos
+ * Autor: Jussan Igor da Silva
+ * Data: 15/04/2023
+ * Versão: 1.4
+*/
 namespace cadastro_forms.View.Forms.Produto
 {
     public class FormEditaProdutos : Form
@@ -132,7 +129,5 @@ namespace cadastro_forms.View.Forms.Produto
         {
             IniciaFormulario();
         }
-
-
     }
 }

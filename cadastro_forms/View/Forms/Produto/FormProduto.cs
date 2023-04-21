@@ -1,5 +1,9 @@
-using ControllerProduto;
-using ModelProduto;
+/* Módulo Formulário para cadastrar produtos
+ * Descrição : Classe responsável pela criação do formulário de cadastro de produtos
+ * Autor : Jussan Igor da Silva
+ * Data : 19/04/2023
+ * Versão : 1.4
+ */
 
 namespace cadastro_forms.View.Forms.Produto
 {
@@ -111,9 +115,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnCancelarProduto.Size = new Size(90, 25);
             btnCancelarProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnCancelarProduto.ForeColor = Color.Black;
-            btnCancelarProduto.Click += (sender, e) => {
-                this.Close();
-            };
+            btnCancelarProduto.Click += (sender, e) => this.Close();
             this.Controls.Add(btnCancelarProduto);
 
             this.Text = "Cadastro de Produto";

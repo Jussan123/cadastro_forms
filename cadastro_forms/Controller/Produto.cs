@@ -6,11 +6,7 @@
  * Versão: 1.0
 */
 
-using System;
-using Conexao;
-using ModelProduto;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+
 
 namespace ControllerProduto
 {

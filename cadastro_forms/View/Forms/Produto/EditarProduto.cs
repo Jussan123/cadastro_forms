@@ -1,5 +1,9 @@
-using ControllerProduto;
-using ModelProduto;
+/* Módulo Formulários de Edição de Produtos
+    * Descrição : Classe responsável pela criação da tela de edição de produtos
+    * Autor : Jussan Igor da Silva
+    * Data : 15/04/2023
+    * Versão : 1.0
+*/
 
 namespace cadastro_forms.View.Forms.Produto
 {

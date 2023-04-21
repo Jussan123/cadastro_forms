@@ -5,11 +5,8 @@
 * Versão : 1.0
 */
 
-using System;
+
 using Conexao;
-using System.Linq;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 
 namespace ModelProduto
 {
@@ -67,13 +64,13 @@ namespace ModelProduto
             return "Produto: Id: " + this.Id + " - Nome: " + this.Nome + " - Descrição: " + this.Descricao + " - Preço: " + this.Preco + " - Quantidade: " + this.Quantidade + " - Data Criação" + this.DataCadastro;
         }
 
-        // ----------- CRUD -------------
+        // ----------- CRUD -----------
 
         public static List<Produto> ReadProdutos()
         {
             DataBase db = new DataBase();
             List<Produto> produtos = (from u in db.Produtos
-                                            select u).ToList();
+                                        select u).ToList();
             return produtos;
         }
 

@@ -1,6 +1,9 @@
-using ControllerProduto;
-using ModelProduto;
-
+/* Módulo Formulario Menu
+* Módulo que representa o formulario de menu
+* Autor: Jussan Igor da Silva
+* Data: 19/04/2023
+* Versão: 1.2
+*/
 namespace cadastro_forms.View.Forms.Produto
 {
     public class FormMenu : Form
@@ -8,6 +11,8 @@ namespace cadastro_forms.View.Forms.Produto
         Label lblTituloMenu;
         Label lblTxtMenu;
         Button btnMenuProduto;
+        Button btnMenuAlmoxarifado;
+        Button btnSaldo;
         Button btnMenuSair;
         
         public void IniciaFormulario(){
@@ -40,6 +45,28 @@ namespace cadastro_forms.View.Forms.Produto
                 this.Close();
             };
             this.Controls.Add(btnMenuSair);
+
+            btnMenuAlmoxarifado = new Button();
+            btnMenuAlmoxarifado.Text = "Ver Almoxarifado";
+            btnMenuAlmoxarifado.Location = new Point(50, 130);
+            btnMenuAlmoxarifado.Size = new Size(120, 25);
+            btnMenuAlmoxarifado.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            btnMenuAlmoxarifado.ForeColor = Color.Black;
+            btnMenuAlmoxarifado.Click += (sender, e) => {
+                AbrirForm( new FormListaAlmoxarifado());
+            };
+            this.Controls.Add(btnMenuAlmoxarifado);
+
+            btnSaldo = new Button();
+            btnSaldo.Text = "Ver Saldo";
+            btnSaldo.Location = new Point(180, 130);
+            btnSaldo.Size = new Size(120, 25);
+            btnSaldo.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
+            btnSaldo.ForeColor = Color.Black;
+            btnSaldo.Click += (sender, e) => {
+                AbrirForm( new FormListaSaldo());
+            };
+            this.Controls.Add(btnSaldo);
 
             this.Text = "Menu de Produtos";
             this.Size = new Size(350, 200);
