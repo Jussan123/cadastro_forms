@@ -26,8 +26,8 @@ namespace cadastro_forms.View.Forms.Produto
             
             btnMenuProduto = new Button();
             btnMenuProduto.Text = "Ver Produtos";
-            btnMenuProduto.Location = new Point(50, 100);
-            btnMenuProduto.Size = new Size(120, 25);
+            btnMenuProduto.Location = new Point(40, 40);
+            btnMenuProduto.Size = new Size(130, 25);
             btnMenuProduto.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnMenuProduto.ForeColor = Color.Black;
             btnMenuProduto.Click += (sender, e) => {
@@ -37,8 +37,8 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnMenuSair = new Button();
             btnMenuSair.Text = "Sair";
-            btnMenuSair.Location = new Point(180, 100);
-            btnMenuSair.Size = new Size(120, 25);
+            btnMenuSair.Location = new Point(175, 40);
+            btnMenuSair.Size = new Size(130, 25);
             btnMenuSair.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnMenuSair.ForeColor = Color.Black;
             btnMenuSair.Click += (sender, e) => {
@@ -48,8 +48,8 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnMenuAlmoxarifado = new Button();
             btnMenuAlmoxarifado.Text = "Ver Almoxarifado";
-            btnMenuAlmoxarifado.Location = new Point(50, 130);
-            btnMenuAlmoxarifado.Size = new Size(120, 25);
+            btnMenuAlmoxarifado.Location = new Point(40, 80);
+            btnMenuAlmoxarifado.Size = new Size(130, 25);
             btnMenuAlmoxarifado.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnMenuAlmoxarifado.ForeColor = Color.Black;
             btnMenuAlmoxarifado.Click += (sender, e) => {
@@ -59,8 +59,8 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnSaldo = new Button();
             btnSaldo.Text = "Ver Saldo";
-            btnSaldo.Location = new Point(180, 130);
-            btnSaldo.Size = new Size(120, 25);
+            btnSaldo.Location = new Point(175, 80);
+            btnSaldo.Size = new Size(130, 25);
             btnSaldo.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnSaldo.ForeColor = Color.Black;
             btnSaldo.Click += (sender, e) => {

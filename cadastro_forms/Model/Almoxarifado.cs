@@ -47,8 +47,8 @@ namespace ModelProduto
             {
                 return false;
             }
-            Almoxarifado Almoxarifado = (Almoxarifado)obj;
-            return this.Id == Almoxarifado.Id;
+            Almoxarifado almoxarifado = (Almoxarifado)obj;
+            return this.Id == almoxarifado.Id;
         }
 
         public override int GetHashCode()
@@ -63,19 +63,12 @@ namespace ModelProduto
 
         // ----------- CRUD -----------
 
-        public static void Create(Almoxarifado Almoxarifado)
-        {
-            DataBase db = new DataBase();
-            db.Almoxarifados.Add(Almoxarifado);
-            db.SaveChanges();
-        }
-
         public static List<Almoxarifado> Read()
         {
             DataBase db = new DataBase();
             List<Almoxarifado> almoxarifados = (from u in db.Almoxarifados 
                                                 select u).ToList();
-            return db.Almoxarifados.ToList();
+            return almoxarifados;
         }
 
         public static Almoxarifado ReadAlmoxarifado(int id)
@@ -84,39 +77,39 @@ namespace ModelProduto
             return db.Almoxarifados.Find(id);
         }
 
-        public static Almoxarifado AtualizaAlmoxarifado(Almoxarifado Almoxarifado)
+        public static Almoxarifado AtualizaAlmoxarifado(int Id, string Nome, string Localizacao)
         {
             DataBase db = new DataBase();
-            Almoxarifado Almoxarifado = db.Almoxarifados.Find(Id);
-            Almoxarifado.Nome = Nome;
-            Almoxarifado.Localizacao = Localizacao;
+            Almoxarifado almoxarifado = db.Almoxarifados.Find(Id);
+            almoxarifado.Nome = Nome;
+            almoxarifado.Localizacao = Localizacao;
             db.SaveChanges();
-            return Almoxarifado;
+            return almoxarifado;
         }
 
         public static Almoxarifado AtualizaNomeAlmoxarifado(int Id, string Nome)
         {
             DataBase db = new DataBase();
-            Almoxarifado Almoxarifado = db.Almoxarifados.Find(Id);
-            Almoxarifado.Nome = Nome;
+            Almoxarifado almoxarifado = db.Almoxarifados.Find(Id);
+            almoxarifado.Nome = Nome;
             db.SaveChanges();
-            return Almoxarifado;
+            return almoxarifado;
         }
 
         public static Almoxarifado AtualizaLocalizacaoAlmoxarifado(int Id, string Localizacao)
         {
             DataBase db = new DataBase();
-            Almoxarifado Almoxarifado = db.Almoxarifados.Find(Id);
-            Almoxarifado.Localizacao = Localizacao;
+            Almoxarifado almoxarifado = db.Almoxarifados.Find(Id);
+            almoxarifado.Localizacao = Localizacao;
             db.SaveChanges();
-            return Almoxarifado;
+            return almoxarifado;
         }
 
         public static void DeleteAlmoxarifado(int Id)
         {
             DataBase db = new DataBase();
-            Almoxarifado Almoxarifado = db.Almoxarifados.Find(Id);
-            db.Almoxarifados.Remove(Almoxarifado);
+            Almoxarifado almoxarifado = db.Almoxarifados.Find(Id);
+            db.Almoxarifados.Remove(almoxarifado);
             db.SaveChanges();
         }
     }

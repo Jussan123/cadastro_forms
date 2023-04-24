@@ -14,8 +14,8 @@
             string Nome,
             string Localizacao)
         {
-            ModelProduto.Almoxarifado Almoxarifado = new ModelProduto.Almoxarifado(Nome, Localizacao);
-            return Almoxarifado;
+            ModelProduto.Almoxarifado almoxarifado = new ModelProduto.Almoxarifado(Nome, Localizacao);
+            return almoxarifado;
         }
 
         public static ModelProduto.Almoxarifado AlteraAlmoxarifado(
@@ -25,7 +25,8 @@
         {
             try 
             {
-                return ModelProduto.Almoxarifado.UpdateAlmoxarifado(Id, Nome, Localizacao);
+                ModelProduto.Almoxarifado.ReadAlmoxarifado(Id);
+                return ModelProduto.Almoxarifado.AtualizaAlmoxarifado(Id, Nome, Localizacao);
             } catch (Exception) {
                 throw new Exception("Id inválido");
             }
@@ -35,7 +36,8 @@
         {
             try 
             {
-                return ModelProduto.Almoxarifado.UpdateAlmoxarifadoNome(Id, Nome);
+                ModelProduto.Almoxarifado.ReadAlmoxarifado(Id);
+                return ModelProduto.Almoxarifado.AtualizaNomeAlmoxarifado(Id, Nome);
             } catch (Exception) {
                 throw new Exception("Id inválido");
             }
@@ -45,17 +47,18 @@
         {
             try 
             {
-                return ModelProduto.Almoxarifado.UpdateAlmoxarifadoLocalizacao(Id, Localizacao);
+                ModelProduto.Almoxarifado.ReadAlmoxarifado(Id);
+                return ModelProduto.Almoxarifado.AtualizaLocalizacaoAlmoxarifado(Id, Localizacao);
             } catch (Exception) {
                 throw new Exception("Id inválido");
             }
         }
 
-        public static ModelProduto.Almoxarifado ExcluiAlmoxarifado(int Id)
+        public static void ExcluiAlmoxarifado(int Id)
         {
             try 
             {
-                return ModelProduto.Almoxarifado.DeleteAlmoxarifado(Id);
+                ModelProduto.Almoxarifado.DeleteAlmoxarifado(Id);
             } catch (Exception) {
                 throw new Exception("Id inválido");
             }
@@ -63,14 +66,14 @@
 
         public static List<ModelProduto.Almoxarifado> ListaAlmoxarifado()
         {
-            return ModelProduto.Almoxarifado.ListaAlmoxarifado();
+            return ModelProduto.Almoxarifado.Read();
         }
 
         public static ModelProduto.Almoxarifado BuscaAlmoxarifado(int Id)
         {
             try 
             {
-                return ModelProduto.Almoxarifado.BuscaAlmoxarifado(Id);
+                return ModelProduto.Almoxarifado.ReadAlmoxarifado(Id);
             } catch (Exception) {
                 throw new Exception("Id inválido");
             }

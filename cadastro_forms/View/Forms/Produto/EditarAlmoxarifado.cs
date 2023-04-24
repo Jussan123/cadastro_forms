@@ -201,7 +201,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnSalvarAlmoxarifado.Size = new Size(200, 20);
             btnSalvarAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnSalvarAlmoxarifado.ForeColor = Color.Black;
-            btnSalvarAlmoxarifado.Click += (sender, e) => SalvarProduto();
+            btnSalvarAlmoxarifado.Click += (sender, e) => SalvarNomeAlmoxarifado();
             this.Controls.Add(btnSalvarAlmoxarifado);
 
             btnCancelarAlmoxarifado = new Button();

@@ -15,6 +15,7 @@ namespace Conexao
     {
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Almoxarifado> Almoxarifados { get; set; }
+        public DbSet<Saldo> Saldos { get; set;}
   
           protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +24,10 @@ namespace Conexao
                 entity.HasKey(e => e.Id);
             });
             modelBuilder.Entity<Almoxarifado>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+            });
+            modelBuilder.Entity<Saldo>(entity =>
             {
                 entity.HasKey(e => e.Id);
             });

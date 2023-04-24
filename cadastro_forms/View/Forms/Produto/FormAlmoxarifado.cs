@@ -5,7 +5,7 @@
  * Versão : 1.0
  */
 
-namespace cadastro_forms.View.Forms.Almoxarifado
+namespace cadastro_forms.View.Forms.Produto
 {
     public class FormAlmoxarifado : Form
     {
@@ -93,10 +93,10 @@ namespace cadastro_forms.View.Forms.Almoxarifado
 
         public void SalvarAlmoxarifado()
         {
-            Almoxarifado Almoxarifado = new Almoxarifado();
-            Almoxarifado.Nome = tbNomeAlmoxarifado.Text;
-            Almoxarifado.Localizacao = tbLocalizacaoAlmoxarifado.Text;
-            ControllerProduto.Almoxarifado.CadastraAlmoxarifado(Almoxarifado.Nome, Almoxarifado.Localizacao);
+            ModelProduto.Almoxarifado almoxarifado = new ModelProduto.Almoxarifado();
+            almoxarifado.Nome = tbNomeAlmoxarifado.Text;
+            almoxarifado.Localizacao = tbLocalizacaoAlmoxarifado.Text;
+            ControllerProduto.Almoxarifado.CadastraAlmoxarifado(almoxarifado.Nome, almoxarifado.Localizacao);
             LimpaTela();
         }
 
