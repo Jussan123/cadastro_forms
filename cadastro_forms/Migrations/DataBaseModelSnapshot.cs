@@ -61,9 +61,6 @@ namespace cadastro_forms.Migrations
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(65,30)");
 
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Produtos");

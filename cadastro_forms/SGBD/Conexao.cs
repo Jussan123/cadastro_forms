@@ -60,7 +60,7 @@ namespace Conexao
         {
             string serverName = "awsjussan.cbrcalzcoxol.us-east-1.rds.amazonaws.com";
             //string serverName = "RDS MySQL";
-            string databaseName = "agenda";
+            string databaseName = "teste";
             string username = "admin";
             string password = "jussan123";
 
@@ -72,7 +72,7 @@ namespace Conexao
 
         private static string GetConnectionStringLocal()
         {
-            return "Server=localhost;User ID=root;Database=agenda;";
+            return "Server=localhost;User ID=root;Database=teste;";
         }
     }
 }

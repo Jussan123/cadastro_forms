@@ -51,7 +51,7 @@ namespace ControllerProduto
             }
         }
 
-        public static List<ModelProduto.Saldo> ListarSaldo()
+        public static List<ModelProduto.Saldo.SaldoCompleto> ListarSaldo()
         {
             return ModelProduto.Saldo.Listar();
         }

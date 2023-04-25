@@ -15,19 +15,16 @@ namespace ControllerProduto
         public static ModelProduto.Produto CadastraProduto(
             string Nome,
             string Descricao,
-            string Preco,
-            string Quantidade)
+            string Preco)
         {
             Decimal precoConvert = 0;
-            int quantidadeConvert = 0;
             try 
             {
                 precoConvert = Decimal.Parse(Preco);
-                quantidadeConvert = int.Parse(Quantidade);
             } catch (Exception) {
                 throw new Exception("Preço ou quantidade inválidos");
             }
-            ModelProduto.Produto produto = new ModelProduto.Produto(Nome, Descricao, precoConvert, quantidadeConvert);
+            ModelProduto.Produto produto = new ModelProduto.Produto(Nome, Descricao, precoConvert);
             return produto;
         }
         
@@ -35,12 +32,11 @@ namespace ControllerProduto
             int Id,
             string Nome,
             string Descricao,
-            Decimal Preco,
-            int Quantidade)
+            Decimal Preco)
         {
             try 
             {
-                return ModelProduto.Produto.UpdateProduto(Id, Nome, Descricao, Preco, Quantidade);
+                return ModelProduto.Produto.UpdateProduto(Id, Nome, Descricao, Preco);
             } catch (Exception) {
                 throw new Exception("Id inválido");
             }
@@ -75,17 +71,6 @@ namespace ControllerProduto
                 throw new Exception("Id ou preço inválido");
             }
         }
-
-        public static ModelProduto.Produto AlteraQuantidadeProduto(int Id, int Quantidade)
-        {
-            try 
-            {
-                return ModelProduto.Produto.UpdateProdutoQuantidade(Id, Quantidade);
-            } catch (Exception) {
-                throw new Exception("Id ou quantidade inválido");
-            }
-        }
-
         public static void ExcluiProduto(int Id)
         {
             try

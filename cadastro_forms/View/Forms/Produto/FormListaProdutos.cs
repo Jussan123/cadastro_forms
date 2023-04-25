@@ -30,20 +30,6 @@ namespace cadastro_forms.View.Forms.Produto
             lblTituloLista.ForeColor = Color.Black;
             this.Controls.Add(lblTituloLista);
 
-            //lbListaProdutos = new ListBox();
-            //lbListaProdutos.Location = new Point(10, 40);
-            //lbListaProdutos.Size = new Size(450, 300);
-            //lbListaProdutos.Font = new Font("TrebuchetMS", 8, FontStyle.Regular);
-            //lbListaProdutos.ForeColor = Color.Black;
-            ////Listar em uma tabela preenchida nessa Listbox os produtos cadastrados tabela Produtos do banco de dados
-            //lbListaProdutos.Layout += (sender, e) => {
-            //    lbListaProdutos.Items.Clear();
-            //    foreach (var produto in ControllerProduto.Produto.ListaProdutos())
-            //    {
-            //        lbListaProdutos.Items.Add(produto);
-            //    }
-            //};
-
             var dataGridView = new DataGridView();
             dataGridView.Location = new Point(10, 40);
             dataGridView.Size = new Size(550, 340);
@@ -53,12 +39,10 @@ namespace cadastro_forms.View.Forms.Produto
             dataGridView.Columns.Add("Nome", "Nome");
             dataGridView.Columns.Add("Descricao", "Descrição");
             dataGridView.Columns.Add("Preco", "Preço");
-            dataGridView.Columns.Add("Quantidade", "Quantidade");
-
             foreach (var produto in ControllerProduto.Produto.ListaProdutos())
             {
             // Adiciona uma nova linha à tabela com os dados do produto
-                dataGridView.Rows.Add(produto.Id, produto.Nome, produto.Descricao, produto.Preco, produto.Quantidade);
+                dataGridView.Rows.Add(produto.Id, produto.Nome, produto.Descricao, produto.Preco);
             }
 
             // Configura a formatação das células da tabela
@@ -122,7 +106,7 @@ namespace cadastro_forms.View.Forms.Produto
                 dataGridView.Rows.Clear();
                 foreach (var produto in ControllerProduto.Produto.ListaProdutos())
                 {
-                    dataGridView.Rows.Add(produto.Id, produto.Nome, produto.Descricao, produto.Preco, produto.Quantidade);
+                    dataGridView.Rows.Add(produto.Id, produto.Nome, produto.Descricao, produto.Preco);
                 }
             };
             this.Controls.Add(btnRefresh);

@@ -15,17 +15,11 @@ namespace cadastro_forms.View.Forms.Produto
 
         Label lblTxtDescricaoProduto;
         Label lblTxtPrecoProduto;
-        Label lblTxtQuantidadeProduto;
-
         TextBox tbNomeProduto;
         TextBox tbDescricaoProduto;
         TextBox tbPrecoProduto;
-        TextBox tbQuantidadeProduto;
-
         Button btnSalvarProduto;
-
         Button btnCancelarProduto;        
-
 
         public void IniciaFormulario(){
             lblTituloProduto = new Label();
@@ -81,21 +75,6 @@ namespace cadastro_forms.View.Forms.Produto
             tbPrecoProduto.ForeColor = Color.Black;
             this.Controls.Add(tbPrecoProduto);
 
-            lblTxtQuantidadeProduto = new Label();
-            lblTxtQuantidadeProduto.Text = "Quantidade:";
-            lblTxtQuantidadeProduto.Location = new Point(10, 190);
-            lblTxtQuantidadeProduto.Size = new Size(200, 20);
-            lblTxtQuantidadeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            lblTxtQuantidadeProduto.ForeColor = Color.Black;
-            this.Controls.Add(lblTxtQuantidadeProduto);
-
-            tbQuantidadeProduto = new TextBox();
-            tbQuantidadeProduto.Location = new Point(10, 210);
-            tbQuantidadeProduto.Size = new Size(200, 20);
-            tbQuantidadeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbQuantidadeProduto.ForeColor = Color.Black;
-            this.Controls.Add(tbQuantidadeProduto);
-
             btnSalvarProduto = new Button();
             btnSalvarProduto.Text = "Salvar";
             btnSalvarProduto.Location = new Point(10, 240);
@@ -126,7 +105,6 @@ namespace cadastro_forms.View.Forms.Produto
             this.MinimizeBox = false;
        } 
 
-
         public FormProduto(){
             IniciaFormulario();
         }
@@ -150,10 +128,6 @@ namespace cadastro_forms.View.Forms.Produto
                 erros.Add("O preço do produto deve ser maior que zero e não pode ser vazia");
             }
 
-            if (String.IsNullOrEmpty(tbQuantidadeProduto.Text)){
-                erros.Add("A quantidade do produto deve ser maior que zero e não pode ser vazia");
-            }
-
             if(erros.Count() == 0){
                 Console.WriteLine("Sem erros");
 
@@ -161,7 +135,6 @@ namespace cadastro_forms.View.Forms.Produto
                 produto.Nome = tbNomeProduto.Text;
                 produto.Descricao = tbDescricaoProduto.Text;
                 try{
-                    produto.Quantidade = Convert.ToInt32(tbQuantidadeProduto.Text);
                     produto.Preco = Convert.ToDecimal(tbPrecoProduto.Text);
                 }
                 catch(Exception ex)
@@ -169,7 +142,7 @@ namespace cadastro_forms.View.Forms.Produto
                     MessageBox.Show("Erro ao converter os valores: " + ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                ControllerProduto.Produto.CadastraProduto(produto.Nome, produto.Descricao, produto.Preco.ToString(), produto.Quantidade.ToString());
+                ControllerProduto.Produto.CadastraProduto(produto.Nome, produto.Descricao, produto.Preco.ToString());
 
                 MessageBox.Show("Produto cadastrado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -193,8 +166,6 @@ namespace cadastro_forms.View.Forms.Produto
             tbDescricaoProduto.Text ="";
             tbNomeProduto.Text = "";
             tbPrecoProduto.Text = "";
-            tbQuantidadeProduto.Text = "";
         }
-
     }
 }

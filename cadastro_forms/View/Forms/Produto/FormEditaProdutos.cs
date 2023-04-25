@@ -13,7 +13,6 @@ namespace cadastro_forms.View.Forms.Produto
         Button btnEditaNomeProduto;
         Button btnEditaDescricaoProduto;
         Button btnEditaPrecoProduto;
-        Button btnEditaQuantidadeProduto;
         Button btnVoltarAoMenuProduto;
 
         public void IniciaFormulario()
@@ -70,26 +69,13 @@ namespace cadastro_forms.View.Forms.Produto
             };
             this.Controls.Add(btnEditaPrecoProduto);
 
-            btnEditaQuantidadeProduto = new Button();
-            btnEditaQuantidadeProduto.Text = "Editar Quantidade";
-            btnEditaQuantidadeProduto.Location = new Point(120,90);
-            btnEditaQuantidadeProduto.Size = new Size(100, 40);
-            btnEditaQuantidadeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            btnEditaQuantidadeProduto.ForeColor = Color.Black;
-            btnEditaQuantidadeProduto.Click += (sender, e) => {
-                AbrirFormEditaQuantidade( new EditaQuantidadeProduto());
-            };
-            this.Controls.Add(btnEditaQuantidadeProduto);
-
             btnVoltarAoMenuProduto = new Button();
-            btnVoltarAoMenuProduto.Text = "Sair";
+            btnVoltarAoMenuProduto.Text = "Voltar";
             btnVoltarAoMenuProduto.Location = new Point(230,90);
             btnVoltarAoMenuProduto.Size = new Size(100, 40);
             btnVoltarAoMenuProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnVoltarAoMenuProduto.ForeColor = Color.Black;
-            btnVoltarAoMenuProduto.Click += (sender, e) => {
-                this.Close();
-            };
+            btnVoltarAoMenuProduto.Click += (sender, e) => this.Close();
             this.Controls.Add(btnVoltarAoMenuProduto);
 
             this.Text = "Editar Produtos";

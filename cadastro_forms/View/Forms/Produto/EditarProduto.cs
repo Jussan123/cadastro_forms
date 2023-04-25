@@ -14,13 +14,10 @@ namespace cadastro_forms.View.Forms.Produto
         Label lblTxtNomeProduto;
         Label lblTxtDescricaoProduto;
         Label lblTxtPrecoProduto;
-        Label lblTxtQuantidadeProduto;
         TextBox tbProdutoId;
         TextBox tbNomeProduto;
         TextBox tbDescricaoProduto;
         TextBox tbPrecoProduto;
-        TextBox tbQuantidadeProduto;
-
         Button btnSalvarProduto;
         Button btnCancelarProduto;
         Button btnSair;
@@ -95,21 +92,6 @@ namespace cadastro_forms.View.Forms.Produto
             tbPrecoProduto.ForeColor = Color.Black;
             this.Controls.Add(tbPrecoProduto);
 
-            lblTxtQuantidadeProduto = new Label();
-            lblTxtQuantidadeProduto.Text = "Quantidade:";
-            lblTxtQuantidadeProduto.Location = new Point(10, 230);
-            lblTxtQuantidadeProduto.Size = new Size(200, 20);
-            lblTxtQuantidadeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            lblTxtQuantidadeProduto.ForeColor = Color.Black;
-            this.Controls.Add(lblTxtQuantidadeProduto);
-
-            tbQuantidadeProduto = new TextBox();
-            tbQuantidadeProduto.Location = new Point(10, 250);
-            tbQuantidadeProduto.Size = new Size(200, 20);
-            tbQuantidadeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbQuantidadeProduto.ForeColor = Color.Black;
-            this.Controls.Add(tbQuantidadeProduto);
-
             btnSalvarProduto = new Button();
             btnSalvarProduto.Text = "Salvar";
             btnSalvarProduto.Location = new Point(10, 270);
@@ -162,10 +144,9 @@ namespace cadastro_forms.View.Forms.Produto
                 produto.Nome = tbNomeProduto.Text;
                 produto.Descricao = tbDescricaoProduto.Text;
                 produto.Preco = Convert.ToDecimal(tbPrecoProduto.Text);
-                produto.Quantidade = Convert.ToInt32(tbQuantidadeProduto.Text);
 
                 ControllerProduto.Produto produtoController = new ControllerProduto.Produto();
-                ControllerProduto.Produto.AlteraProduto(produto.Id, produto.Nome, produto.Descricao, produto.Preco, produto.Quantidade);
+                ControllerProduto.Produto.AlteraProduto(produto.Id, produto.Nome, produto.Descricao, produto.Preco);
 
                 MessageBox.Show("Produto Alterado com sucesso!");
             } catch (Exception ex)
@@ -179,10 +160,7 @@ namespace cadastro_forms.View.Forms.Produto
             tbDescricaoProduto.Text ="";
             tbNomeProduto.Text = "";
             tbPrecoProduto.Text = "";
-            tbQuantidadeProduto.Text = "";
-
         }
-
     }
 
     public class EditaNomeProduto : Form
@@ -530,119 +508,4 @@ namespace cadastro_forms.View.Forms.Produto
             IniciaFormulario();
         }
     }
-
-    public class EditaQuantidadeProduto : Form
-    {
-        Label lblTitulo;
-        Label lblQuantidadeProduto;
-        TextBox tbQuantidadeProduto;
-        Label lblProdutoId;
-        TextBox tbProdutoId;
-        Button btnSalvar;
-        Button btnCancelar;
-        Button btnSair;
-
-        public void IniciaFormulario()
-        {
-            lblTitulo = new Label();
-            lblTitulo.Text = "Editar Quantidade do Produto";
-            lblTitulo.Location = new Point(10, 10);
-            lblTitulo.Size = new Size(400, 20);
-            lblTitulo.Font = new Font("TrebuchetMS", 12, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.Black;
-            this.Controls.Add(lblTitulo);
-
-            lblQuantidadeProduto = new Label();
-            lblQuantidadeProduto.Text = "Quantidade:";
-            lblQuantidadeProduto.Location = new Point(10, 40);
-            lblQuantidadeProduto.Size = new Size(200, 20);
-            lblQuantidadeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            lblQuantidadeProduto.ForeColor = Color.Black;
-            this.Controls.Add(lblQuantidadeProduto);
-
-            tbQuantidadeProduto = new TextBox();
-            tbQuantidadeProduto.Location = new Point(10, 60);
-            tbQuantidadeProduto.Size = new Size(200, 20);
-            tbQuantidadeProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbQuantidadeProduto.ForeColor = Color.Black;
-            this.Controls.Add(tbQuantidadeProduto);
-
-            lblProdutoId = new Label();
-            lblProdutoId.Text = "Id:";
-            lblProdutoId.Location = new Point(10, 80);
-            lblProdutoId.Size = new Size(200, 20);
-            lblProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            lblProdutoId.ForeColor = Color.Black;
-            this.Controls.Add(lblProdutoId);
-
-            tbProdutoId = new TextBox();
-            tbProdutoId.Location = new Point(10, 100);
-            tbProdutoId.Size = new Size(20, 20);
-            tbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbProdutoId.ForeColor = Color.Black;
-            this.Controls.Add(tbProdutoId);
-
-            btnSalvar = new Button();
-            btnSalvar.Text = "Salvar";
-            btnSalvar.Location = new Point(10, 130);
-            btnSalvar.Size = new Size(100, 20);
-            btnSalvar.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            btnSalvar.ForeColor = Color.Black;
-            btnSalvar.Click += (sender, e) => {
-                SalvarQuantidadeProduto();
-                LimpaTela();
-            };
-            this.Controls.Add(btnSalvar);
-
-            btnCancelar = new Button();
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.Location = new Point(120, 130);
-            btnCancelar.Size = new Size(100, 20);
-            btnCancelar.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            btnCancelar.ForeColor = Color.Black;
-            btnCancelar.Click += (sender, e) => {
-                LimpaTela();
-            };
-            this.Controls.Add(btnCancelar);
-
-            btnSair = new Button();
-            btnSair.Text = "Sair";
-            btnSair.Location = new Point(230, 130);
-            btnSair.Size = new Size(100, 20);
-            btnSair.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            btnSair.ForeColor = Color.Black;
-            btnSair.Click += (sender, e) => this.Close();
-            this.Controls.Add(btnSair);
-
-            this.Text = "Editar Quantidade do Produto";
-            this.Size = new Size(500, 300);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-        }
-
-        public void SalvarQuantidadeProduto()
-        {
-            ModelProduto.Produto produto = new ModelProduto.Produto();
-            produto.Quantidade = Convert.ToInt32(tbQuantidadeProduto.Text);
-            produto.Id = Convert.ToInt32(tbProdutoId.Text);
-
-            ControllerProduto.Produto.AlteraQuantidadeProduto(produto.Id, produto.Quantidade);
-
-            MessageBox.Show("Quantidade do produto editado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        public void LimpaTela()
-        {
-            tbQuantidadeProduto.Text = "";
-            tbProdutoId.Text = "";
-        }
-
-        public EditaQuantidadeProduto()
-        {
-            IniciaFormulario();
-        }
-    }
-
 }

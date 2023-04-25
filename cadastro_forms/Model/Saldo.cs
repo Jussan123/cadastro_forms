@@ -69,12 +69,26 @@ namespace ModelProduto
 
         //----------------- CRUD -----------------//
 
-        public static List<Saldo> Listar()
+        public static List<SaldoCompleto> Listar()
         {
-            DataBase db = new DataBase();
-            return db.Saldos.ToList();
+            using (DataBase db = new DataBase())
+            {
+                var query = from saldo in db.Saldos
+                            join produto in db.Produtos on saldo.ProdutoId equals produto.Id
+                            join almoxarifado in db.Almoxarifados on saldo.AlmoxarifadoId equals almoxarifado.Id
+                            select new SaldoCompleto
+                            {
+                                Id = saldo.Id,
+                                ProdutoId = saldo.ProdutoId,
+                                Produto = produto.Nome,
+                                AlmoxarifadoId = saldo.AlmoxarifadoId,
+                                Almoxarifado = almoxarifado.Nome,
+                                Quantidade = saldo.Quantidade,
+                                DataUltimaAtualizacao = saldo.DataUltimaAtualizacao
+                            };
+                return query.ToList();
+            }
         }
-
         public static Saldo Buscar(int Id)
         {
             DataBase db = new DataBase();
@@ -100,6 +114,17 @@ namespace ModelProduto
             DataBase db = new DataBase();
             db.Saldos.Remove(db.Saldos.Find(Id));
             db.SaveChanges();
+        }
+
+        public class SaldoCompleto
+        {
+            public int Id { get; set; }
+            public int ProdutoId { get; set; }
+            public string Produto { get; set; }
+            public int AlmoxarifadoId { get; set; }
+            public string Almoxarifado { get; set; }
+            public int Quantidade { get; set; }
+            public DateTime DataUltimaAtualizacao { get; set; }
         }
     }
 }
