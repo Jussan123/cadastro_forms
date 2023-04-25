@@ -11,11 +11,11 @@ namespace cadastro_forms.View.Forms.Produto
     {
         Label lblTitulo;
         Label lblTxtIdSaldo;
-        Label lblTxtIdProduto;
-        Label lblTxtIdAlmoxarifado;
+        Label lblTxtProdutoId;
+        Label lblTxtAlmoxarifadoId;
         TextBox txtIdSaldo;
-        TextBox txtIdProduto;
-        TextBox txtIdAlmoxarifado;
+        TextBox txtProdutoId;
+        TextBox txtAlmoxarifadoId;
         Button btnSalvar;
         Button btnCancelar;
         Button btnSair;
@@ -46,35 +46,35 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(txtIdSaldo);
 
 
-            lblTxtIdProduto = new Label();
-            lblTxtIdProduto.Text = "Id Produto:";
-            lblTxtIdProduto.Location = new Point(10, 90);
-            lblTxtIdProduto.Size = new Size(200, 20);
-            lblTxtIdProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            lblTxtIdProduto.ForeColor = Color.Black;
-            this.Controls.Add(lblTxtIdProduto);
+            lblTxtProdutoId = new Label();
+            lblTxtProdutoId.Text = "Id Produto:";
+            lblTxtProdutoId.Location = new Point(10, 90);
+            lblTxtProdutoId.Size = new Size(200, 20);
+            lblTxtProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            lblTxtProdutoId.ForeColor = Color.Black;
+            this.Controls.Add(lblTxtProdutoId);
 
-            txtIdProduto = new TextBox();
-            txtIdProduto.Location = new Point(10, 110);
-            txtIdProduto.Size = new Size(200, 20);
-            txtIdProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            txtIdProduto.ForeColor = Color.Black;
-            this.Controls.Add(txtIdProduto);
+            txtProdutoId = new TextBox();
+            txtProdutoId.Location = new Point(10, 110);
+            txtProdutoId.Size = new Size(200, 20);
+            txtProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            txtProdutoId.ForeColor = Color.Black;
+            this.Controls.Add(txtProdutoId);
 
-            lblTxtIdAlmoxarifado = new Label();
-            lblTxtIdAlmoxarifado.Text = "Id Almoxarifado:";
-            lblTxtIdAlmoxarifado.Location = new Point(10, 140);
-            lblTxtIdAlmoxarifado.Size = new Size(200, 20);
-            lblTxtIdAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            lblTxtIdAlmoxarifado.ForeColor = Color.Black;
-            this.Controls.Add(lblTxtIdAlmoxarifado);
+            lblTxtAlmoxarifadoId = new Label();
+            lblTxtAlmoxarifadoId.Text = "Id Almoxarifado:";
+            lblTxtAlmoxarifadoId.Location = new Point(10, 140);
+            lblTxtAlmoxarifadoId.Size = new Size(200, 20);
+            lblTxtAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            lblTxtAlmoxarifadoId.ForeColor = Color.Black;
+            this.Controls.Add(lblTxtAlmoxarifadoId);
 
-            txtIdAlmoxarifado = new TextBox();
-            txtIdAlmoxarifado.Location = new Point(10, 160);
-            txtIdAlmoxarifado.Size = new Size(200, 20);
-            txtIdAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            txtIdAlmoxarifado.ForeColor = Color.Black;
-            this.Controls.Add(txtIdAlmoxarifado);
+            txtAlmoxarifadoId = new TextBox();
+            txtAlmoxarifadoId.Location = new Point(10, 160);
+            txtAlmoxarifadoId.Size = new Size(200, 20);
+            txtAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            txtAlmoxarifadoId.ForeColor = Color.Black;
+            this.Controls.Add(txtAlmoxarifadoId);
 
             btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -125,8 +125,8 @@ namespace cadastro_forms.View.Forms.Produto
             {
                 ModelProduto.Saldo saldo = new ModelProduto.Saldo();
                 saldo.Id = Convert.ToInt32(txtIdSaldo.Text);
-                saldo.IdProduto = Convert.ToInt32(txtIdProduto.Text);
-                saldo.IdAlmoxarifado = Convert.ToInt32(txtIdAlmoxarifado.Text);
+                saldo.ProdutoId = Convert.ToInt32(txtProdutoId.Text);
+                saldo.AlmoxarifadoId = Convert.ToInt32(txtAlmoxarifadoId.Text);
                 try
                 {
                     ControllerProduto.Saldo.BuscaSaldo(saldo.Id);
@@ -136,8 +136,7 @@ namespace cadastro_forms.View.Forms.Produto
                 }
                 try
                 {
-                    ModelProduto.Produto produto = ControllerProduto.Produto.BuscaProduto(saldo.IdProduto);
-                    saldo.NomeProduto = produto.Nome;
+                    ModelProduto.Produto produto = ControllerProduto.Produto.BuscaProduto(saldo.ProdutoId);
                     saldo.Quantidade = produto.Quantidade;
                 } catch (Exception ex)
                 {
@@ -145,13 +144,12 @@ namespace cadastro_forms.View.Forms.Produto
                 }
                 try
                 {
-                    ModelProduto.Almoxarifado almoxarifado = ControllerProduto.Almoxarifado.BuscaAlmoxarifado(saldo.IdAlmoxarifado);
-                    saldo.NomeAlmoxarifado = almoxarifado.Nome;
+                    ModelProduto.Almoxarifado almoxarifado = ControllerProduto.Almoxarifado.BuscaAlmoxarifado(saldo.AlmoxarifadoId);
                 } catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao buscar almoxarifado: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                ControllerProduto.Saldo.AlteraSaldo(saldo.Id, saldo.IdProduto, saldo.NomeProduto, saldo.IdAlmoxarifado, saldo.NomeAlmoxarifado, saldo.Quantidade);
+                ControllerProduto.Saldo.AlteraSaldo(saldo.Id, saldo.ProdutoId, saldo.AlmoxarifadoId, saldo.Quantidade);
                 MessageBox.Show("Saldo alterado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } catch (Exception ex)
             {
@@ -162,8 +160,8 @@ namespace cadastro_forms.View.Forms.Produto
         public void LimpaTela()
         {
             txtIdSaldo.Text = "";
-            txtIdProduto.Text = "";
-            txtIdAlmoxarifado.Text = "";
+            txtProdutoId.Text = "";
+            txtAlmoxarifadoId.Text = "";
         }
     }
 }

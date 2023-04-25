@@ -10,10 +10,10 @@ namespace cadastro_forms.View.Forms.Produto
     public class EditarAlmoxarifado : Form
     {
         Label lblTituloAlmoxarifado;
-        Label lblTxtIdAlmoxarifado;
+        Label lblTxtAlmoxarifadoId;
         Label lblTxtNomeAlmoxarifado;
         Label lblTxtLocalizacaoAlmoxarifado;
-        TextBox tbIdAlmoxarifado;
+        TextBox tbAlmoxarifadoId;
         TextBox tbNomeAlmoxarifado;
         TextBox tbLocalizacaoAlmoxarifado;
         Button btnSalvarAlmoxarifado;
@@ -30,20 +30,20 @@ namespace cadastro_forms.View.Forms.Produto
             lblTituloAlmoxarifado.ForeColor = Color.Black;
             this.Controls.Add(lblTituloAlmoxarifado);
 
-            lblTxtIdAlmoxarifado = new Label();
-            lblTxtIdAlmoxarifado.Text = "ID:";
-            lblTxtIdAlmoxarifado.Location = new Point(10, 40);
-            lblTxtIdAlmoxarifado.Size = new Size(200, 20);
-            lblTxtIdAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            lblTxtIdAlmoxarifado.ForeColor = Color.Black;
-            this.Controls.Add(lblTxtIdAlmoxarifado);
+            lblTxtAlmoxarifadoId = new Label();
+            lblTxtAlmoxarifadoId.Text = "ID:";
+            lblTxtAlmoxarifadoId.Location = new Point(10, 40);
+            lblTxtAlmoxarifadoId.Size = new Size(200, 20);
+            lblTxtAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            lblTxtAlmoxarifadoId.ForeColor = Color.Black;
+            this.Controls.Add(lblTxtAlmoxarifadoId);
 
-            tbIdAlmoxarifado = new TextBox();
-            tbIdAlmoxarifado.Location = new Point(10, 60);
-            tbIdAlmoxarifado.Size = new Size(200, 20);
-            tbIdAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbIdAlmoxarifado.ForeColor = Color.Black;
-            this.Controls.Add(tbIdAlmoxarifado);
+            tbAlmoxarifadoId = new TextBox();
+            tbAlmoxarifadoId.Location = new Point(10, 60);
+            tbAlmoxarifadoId.Size = new Size(200, 20);
+            tbAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            tbAlmoxarifadoId.ForeColor = Color.Black;
+            this.Controls.Add(tbAlmoxarifadoId);
 
             lblTxtNomeAlmoxarifado = new Label();
             lblTxtNomeAlmoxarifado.Text = "Nome:";
@@ -97,7 +97,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnCancelarAlmoxarifado);
 
             btnVoltarAlmoxarifado = new Button();
-            btnVoltarAlmoxarifado.Text = "Voltar";
+            btnVoltarAlmoxarifado.Text = "Sair";
             btnVoltarAlmoxarifado.Location = new Point(10, 230);
             btnVoltarAlmoxarifado.Size = new Size(200, 20);
             btnVoltarAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
@@ -122,7 +122,7 @@ namespace cadastro_forms.View.Forms.Produto
             try
             {
                 ModelProduto.Almoxarifado Almoxarifado = new ModelProduto.Almoxarifado();
-                Almoxarifado.Id = Convert.ToInt32(tbIdAlmoxarifado.Text);
+                Almoxarifado.Id = Convert.ToInt32(tbAlmoxarifadoId.Text);
                 Almoxarifado.Nome = tbNomeAlmoxarifado.Text;
                 Almoxarifado.Localizacao = tbLocalizacaoAlmoxarifado.Text;
 
@@ -138,7 +138,7 @@ namespace cadastro_forms.View.Forms.Produto
 
         public void LimpaTela()
         {
-            tbIdAlmoxarifado.Text = "";
+            tbAlmoxarifadoId.Text = "";
             tbNomeAlmoxarifado.Text = "";
             tbLocalizacaoAlmoxarifado.Text = "";
         }
@@ -149,8 +149,8 @@ namespace cadastro_forms.View.Forms.Produto
         Label lblTitulo;
         Label lblNomeAlmoxarifado;
         TextBox tbNomeAlmoxarifado;
-        Label lblIdAlmoxarifado;
-        TextBox tbIdAlmoxarifado;
+        Label lblAlmoxarifadoId;
+        TextBox tbAlmoxarifadoId;
         Button btnSalvarAlmoxarifado;
         Button btnCancelarAlmoxarifado;
         Button btnVoltarAlmoxarifado;
@@ -165,20 +165,20 @@ namespace cadastro_forms.View.Forms.Produto
             lblTitulo.ForeColor = Color.Black;
             this.Controls.Add(lblTitulo);
 
-            lblIdAlmoxarifado = new Label();
-            lblIdAlmoxarifado.Text = "Id:";
-            lblIdAlmoxarifado.Location = new Point(10, 40);
-            lblIdAlmoxarifado.Size = new Size(200, 20);
-            lblIdAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            lblIdAlmoxarifado.ForeColor = Color.Black;
-            this.Controls.Add(lblIdAlmoxarifado);
+            lblAlmoxarifadoId = new Label();
+            lblAlmoxarifadoId.Text = "Id:";
+            lblAlmoxarifadoId.Location = new Point(10, 40);
+            lblAlmoxarifadoId.Size = new Size(200, 20);
+            lblAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            lblAlmoxarifadoId.ForeColor = Color.Black;
+            this.Controls.Add(lblAlmoxarifadoId);
 
-            tbIdAlmoxarifado = new TextBox();
-            tbIdAlmoxarifado.Location = new Point(10, 60);
-            tbIdAlmoxarifado.Size = new Size(200, 20);
-            tbIdAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbIdAlmoxarifado.ForeColor = Color.Black;
-            this.Controls.Add(tbIdAlmoxarifado);
+            tbAlmoxarifadoId = new TextBox();
+            tbAlmoxarifadoId.Location = new Point(10, 60);
+            tbAlmoxarifadoId.Size = new Size(200, 20);
+            tbAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            tbAlmoxarifadoId.ForeColor = Color.Black;
+            this.Controls.Add(tbAlmoxarifadoId);
 
             lblNomeAlmoxarifado = new Label();
             lblNomeAlmoxarifado.Text = "Nome:";
@@ -214,7 +214,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnCancelarAlmoxarifado);
 
             btnVoltarAlmoxarifado = new Button();
-            btnVoltarAlmoxarifado.Text = "Voltar";
+            btnVoltarAlmoxarifado.Text = "Sair";
             btnVoltarAlmoxarifado.Location = new Point(10, 200);
             btnVoltarAlmoxarifado.Size = new Size(200, 20);
             btnVoltarAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
@@ -233,7 +233,7 @@ namespace cadastro_forms.View.Forms.Produto
         public void SalvarNomeAlmoxarifado()
         {
             ModelProduto.Almoxarifado Almoxarifado = new ModelProduto.Almoxarifado();
-            Almoxarifado.Id = Convert.ToInt32(tbIdAlmoxarifado.Text);
+            Almoxarifado.Id = Convert.ToInt32(tbAlmoxarifadoId.Text);
             Almoxarifado.Nome = tbNomeAlmoxarifado.Text;
 
             ControllerProduto.Almoxarifado.AlteraNomeAlmoxarifado(Almoxarifado.Id, Almoxarifado.Nome);
@@ -243,7 +243,7 @@ namespace cadastro_forms.View.Forms.Produto
 
         public void LimpaTela()
         {
-            tbIdAlmoxarifado.Text = "";
+            tbAlmoxarifadoId.Text = "";
             tbNomeAlmoxarifado.Text = "";
         }
 
@@ -257,8 +257,8 @@ namespace cadastro_forms.View.Forms.Produto
     {
         Label lblTitulo;
         Label lblLocalizacaoAlmoxarifado;
-        Label lblIdAlmoxarifado;
-        TextBox tbIdAlmoxarifado;
+        Label lblAlmoxarifadoId;
+        TextBox tbAlmoxarifadoId;
         TextBox tbLocalizacaoAlmoxarifado;
         Button btnSalvarAlmoxarifado;
         Button btnCancelarAlmoxarifado;
@@ -274,20 +274,20 @@ namespace cadastro_forms.View.Forms.Produto
             lblTitulo.ForeColor = Color.Black;
             this.Controls.Add(lblTitulo);
 
-            lblIdAlmoxarifado = new Label();
-            lblIdAlmoxarifado.Text = "Id:";
-            lblIdAlmoxarifado.Location = new Point(10, 40);
-            lblIdAlmoxarifado.Size = new Size(200, 20);
-            lblIdAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            lblIdAlmoxarifado.ForeColor = Color.Black;
-            this.Controls.Add(lblIdAlmoxarifado);
+            lblAlmoxarifadoId = new Label();
+            lblAlmoxarifadoId.Text = "Id:";
+            lblAlmoxarifadoId.Location = new Point(10, 40);
+            lblAlmoxarifadoId.Size = new Size(200, 20);
+            lblAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            lblAlmoxarifadoId.ForeColor = Color.Black;
+            this.Controls.Add(lblAlmoxarifadoId);
 
-            tbIdAlmoxarifado = new TextBox();
-            tbIdAlmoxarifado.Location = new Point(10, 60);
-            tbIdAlmoxarifado.Size = new Size(200, 20);
-            tbIdAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbIdAlmoxarifado.ForeColor = Color.Black;
-            this.Controls.Add(tbIdAlmoxarifado);
+            tbAlmoxarifadoId = new TextBox();
+            tbAlmoxarifadoId.Location = new Point(10, 60);
+            tbAlmoxarifadoId.Size = new Size(200, 20);
+            tbAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            tbAlmoxarifadoId.ForeColor = Color.Black;
+            this.Controls.Add(tbAlmoxarifadoId);
 
             lblLocalizacaoAlmoxarifado = new Label();
             lblLocalizacaoAlmoxarifado.Text = "Localização:";
@@ -328,7 +328,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnCancelarAlmoxarifado);
 
             btnVoltarAlmoxarifado = new Button();
-            btnVoltarAlmoxarifado.Text = "Voltar";
+            btnVoltarAlmoxarifado.Text = "Sair";
             btnVoltarAlmoxarifado.Location = new Point(10, 200);
             btnVoltarAlmoxarifado.Size = new Size(200, 20);
             btnVoltarAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
@@ -348,7 +348,7 @@ namespace cadastro_forms.View.Forms.Produto
         {
             ModelProduto.Almoxarifado Almoxarifado = new ModelProduto.Almoxarifado();
 
-            Almoxarifado.Id = Convert.ToInt32(tbIdAlmoxarifado.Text);
+            Almoxarifado.Id = Convert.ToInt32(tbAlmoxarifadoId.Text);
             Almoxarifado.Localizacao = tbLocalizacaoAlmoxarifado.Text;
 
             ControllerProduto.Almoxarifado.AlteraLocalizacaoAlmoxarifado(Almoxarifado.Id, Almoxarifado.Localizacao);
@@ -358,7 +358,7 @@ namespace cadastro_forms.View.Forms.Produto
 
         public void LimpaTela()
         {
-            tbIdAlmoxarifado.Text = "";
+            tbAlmoxarifadoId.Text = "";
             tbLocalizacaoAlmoxarifado.Text = "";
         }
 

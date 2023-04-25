@@ -59,7 +59,7 @@
             this.Controls.Add(btnEditarLocalizacaoAlmoxarifado);
 
             btnVoltarAlmoxarifado = new Button();
-            btnVoltarAlmoxarifado.Text = "Voltar";
+            btnVoltarAlmoxarifado.Text = "Sair";
             btnVoltarAlmoxarifado.Location = new Point(10, 130);
             btnVoltarAlmoxarifado.Size = new Size(200, 20);
             btnVoltarAlmoxarifado.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);

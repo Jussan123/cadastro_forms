@@ -82,7 +82,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnEditaQuantidadeProduto);
 
             btnVoltarAoMenuProduto = new Button();
-            btnVoltarAoMenuProduto.Text = "Voltar";
+            btnVoltarAoMenuProduto.Text = "Sair";
             btnVoltarAoMenuProduto.Location = new Point(230,90);
             btnVoltarAoMenuProduto.Size = new Size(100, 40);
             btnVoltarAoMenuProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);

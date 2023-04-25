@@ -59,7 +59,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnIncluiAlmoxarifado);
 
             btnAlteraAlmoxarifado = new Button();
-            btnAlteraAlmoxarifado.Text = "Alterar";
+            btnAlteraAlmoxarifado.Text = "Editar";
             btnAlteraAlmoxarifado.Location = new Point(120, 440);
             btnAlteraAlmoxarifado.Size = new Size(100, 30);
             btnAlteraAlmoxarifado.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
@@ -113,7 +113,6 @@ namespace cadastro_forms.View.Forms.Produto
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.ShowDialog();
         }
 
         public FormListaAlmoxarifado()

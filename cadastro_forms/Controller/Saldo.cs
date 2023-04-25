@@ -13,27 +13,25 @@ namespace ControllerProduto
     public class Saldo
     {
         public static ModelProduto.Saldo CadastraSaldo(
-            int IdProduto,
-            string NomeProduto,
-            int IdAlmoxarifado,
-            string NomeAlmoxarifado,
+            int ProdutoId,
+            ModelProduto.Produto Produto,
+            int AlmoxarifadoId,
+            ModelProduto.Almoxarifado Almoxarifado,
             int Quantidade)
         {
-            ModelProduto.Saldo saldo = new ModelProduto.Saldo(IdProduto, NomeProduto, IdAlmoxarifado, NomeAlmoxarifado, Quantidade);
+            ModelProduto.Saldo saldo = new ModelProduto.Saldo(ProdutoId, Produto, AlmoxarifadoId, Almoxarifado, Quantidade);
             return saldo;
         }
 
         public static ModelProduto.Saldo AlteraSaldo(
             int Id,
-            int IdProduto,
-            string NomeProduto,
-            int IdAlmoxarifado,
-            string NomeAlmoxarifado,
+            int ProdutoId,
+            int AlmoxarifadoId,
             int Quantidade)
         {
             try
             {
-                return ModelProduto.Saldo.Atualizar(Id, IdProduto, NomeProduto, IdAlmoxarifado, NomeAlmoxarifado, Quantidade);
+                return ModelProduto.Saldo.Atualizar(Id, ProdutoId, AlmoxarifadoId, Quantidade);
             }
             catch (Exception)
             {

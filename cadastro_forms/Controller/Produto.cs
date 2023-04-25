@@ -38,9 +38,6 @@ namespace ControllerProduto
             Decimal Preco,
             int Quantidade)
         {
-            int idConvert = 0;
-            int precoConvert = 0;
-            int quantidadeConvert = 0;
             try 
             {
                 return ModelProduto.Produto.UpdateProduto(Id, Nome, Descricao, Preco, Quantidade);

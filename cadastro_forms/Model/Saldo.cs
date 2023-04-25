@@ -13,10 +13,10 @@ namespace ModelProduto
     public class Saldo
     {
         public int Id { get; set; }
-        public int IdProduto { get; set; }
-        public string NomeProduto { get; set; }
-        public int IdAlmoxarifado { get; set; }
-        public string NomeAlmoxarifado { get; set; }
+        public int ProdutoId { get; set; }
+        public virtual ModelProduto.Produto Produto { get; set; }
+        public int AlmoxarifadoId { get; set; }
+        public virtual  ModelProduto.Almoxarifado Almoxarifado { get; set; }
         public int Quantidade { get; set; }
         public DateTime DataUltimaAtualizacao { get; set; }
 
@@ -25,12 +25,12 @@ namespace ModelProduto
         {
         }
 
-        public Saldo(int IdProduto, string NomeProduto, int IdAlmoxarifado, string NomeAlmoxarifado, int Quantidade)
+        public Saldo(int ProdutoId, ModelProduto.Produto Produto,int AlmoxarifadoId, ModelProduto.Almoxarifado Almoxarifado, int Quantidade)
         {
-            this.IdProduto = IdProduto;
-            this.NomeProduto = NomeProduto;
-            this.IdAlmoxarifado = IdAlmoxarifado;
-            this.NomeAlmoxarifado = NomeAlmoxarifado;
+            this.ProdutoId = ProdutoId;
+            //this.Produto = Produto;
+            this.AlmoxarifadoId = AlmoxarifadoId;
+            //this.Almoxarifado = Almoxarifado;
             this.Quantidade = Quantidade;
             this.DataUltimaAtualizacao = DateTime.UtcNow;
 
@@ -64,7 +64,7 @@ namespace ModelProduto
 
         public override string ToString()
         {
-            return $"Id: {this.Id}, IdProduto: {this.IdProduto}, NomeProduto: {this.NomeProduto}, IdAlmoxarifado: {this.IdAlmoxarifado}, NomeAlmoxarifado: {this.NomeAlmoxarifado}, Quantidade: {this.Quantidade}, DataUltimaAtualizacao: {this.DataUltimaAtualizacao}";
+            return $"Id: {this.Id}, ProdutoId: {this.ProdutoId}, NomeProduto: {this.Produto.Nome}, AlmoxarifadoId: {this.AlmoxarifadoId}, NomeAlmoxarifado: {this.Almoxarifado.Nome}, Quantidade: {this.Quantidade}, DataUltimaAtualizacao: {this.DataUltimaAtualizacao}";
         }
 
         //----------------- CRUD -----------------//
@@ -81,15 +81,15 @@ namespace ModelProduto
             return db.Saldos.Find(Id);
         }
 
-        public static Saldo Atualizar(int Id, int IdProduto, string NomeProduto, int IdAlmoxarifado, string NomeAlmoxarifado, int Quantidade)
+        public static Saldo Atualizar(int id, int produtoId, int almoxarifadoId, int quantidade)
         {
             DataBase db = new DataBase();
-            Saldo saldo = db.Saldos.Find(Id);
-            saldo.IdProduto = IdProduto;
-            saldo.NomeProduto = NomeProduto;
-            saldo.IdAlmoxarifado = IdAlmoxarifado;
-            saldo.NomeAlmoxarifado = NomeAlmoxarifado;
-            saldo.Quantidade = Quantidade;
+            Saldo saldo = db.Saldos.Find(id);
+            saldo.ProdutoId = produtoId;
+            saldo.Produto = ModelProduto.Produto.ReadProduto(produtoId);
+            saldo.AlmoxarifadoId = almoxarifadoId;
+            saldo.Almoxarifado = ModelProduto.Almoxarifado.ReadAlmoxarifado(almoxarifadoId);
+            saldo.Quantidade = quantidade;
             saldo.DataUltimaAtualizacao = DateTime.UtcNow;
             db.SaveChanges();
             return saldo;

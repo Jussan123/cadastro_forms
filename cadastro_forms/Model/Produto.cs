@@ -134,7 +134,5 @@ namespace ModelProduto
             db.Produtos.Remove(produto);
             db.SaveChanges();
         }
-
-
     }
 }

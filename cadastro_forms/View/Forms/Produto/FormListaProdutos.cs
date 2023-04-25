@@ -104,7 +104,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btneditaProduto);
 
             btnVoltarMenu = new Button();
-            btnVoltarMenu.Text = "Voltar";
+            btnVoltarMenu.Text = "Sair";
             btnVoltarMenu.Location = new Point(340, 400);
             btnVoltarMenu.Size = new Size(100, 30);
             btnVoltarMenu.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
@@ -133,12 +133,8 @@ namespace cadastro_forms.View.Forms.Produto
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.ShowDialog();
         }
-        //public FormListaProdutos(List<ModelProduto.Produto> listaProdutos)
-        //{
-        //    IniciaFormulario();
-        //}
+       
         public FormListaProdutos()
         {
             IniciaFormulario();

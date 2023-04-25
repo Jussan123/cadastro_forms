@@ -40,15 +40,15 @@ namespace cadastro_forms.View.Forms.Produto
             dataGridView.Location = new Point(50, 60);
             dataGridView.Size = new Size(700, 400);
             dataGridView.Columns.Add("Id", "ID");
-            dataGridView.Columns.Add("IdProduto", "ID-Produto");
+            dataGridView.Columns.Add("ProdutoId", "ID-Produto");
             dataGridView.Columns.Add("NomeProduto", "Nome-Produto");
-            dataGridView.Columns.Add("IdAlmoxarifado", "ID-Almoxarifado");
+            dataGridView.Columns.Add("AlmoxarifadoId", "ID-Almoxarifado");
             dataGridView.Columns.Add("NomeAlmoxarifado", "Nome-Almoxarifado");
             dataGridView.Columns.Add("Quantidade", "Quantidade");
             dataGridView.Columns.Add("DataUltimaAtualizacao", "Data-Atualização");
             foreach (var saldo in ControllerProduto.Saldo.ListarSaldo())
             {
-                dataGridView.Rows.Add(saldo.Id, saldo.IdProduto, saldo.NomeProduto, saldo.IdAlmoxarifado, saldo.NomeAlmoxarifado, saldo.Quantidade, saldo.DataUltimaAtualizacao);
+                dataGridView.Rows.Add(saldo.Id, saldo.ProdutoId, saldo.Produto, saldo.AlmoxarifadoId, saldo.Almoxarifado, saldo.Quantidade, saldo.DataUltimaAtualizacao);
             }
             dataGridView.DefaultCellStyle.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             dataGridView.DefaultCellStyle.ForeColor = Color.Black;
@@ -110,7 +110,7 @@ namespace cadastro_forms.View.Forms.Produto
                 dataGridView.Rows.Clear();
                 foreach (var saldo in ControllerProduto.Saldo.ListarSaldo())
                 {
-                    dataGridView.Rows.Add(saldo.Id, saldo.IdProduto, saldo.NomeProduto, saldo.IdAlmoxarifado, saldo.NomeAlmoxarifado, saldo.Quantidade, saldo.DataUltimaAtualizacao);
+                    dataGridView.Rows.Add(saldo.Id, saldo.ProdutoId, saldo.Produto, saldo.AlmoxarifadoId, saldo.Almoxarifado, saldo.Quantidade, saldo.DataUltimaAtualizacao);
                 }
             };
             this.Controls.Add(btnRefresh);
