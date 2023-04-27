@@ -22,8 +22,8 @@ namespace cadastro_forms.View.Forms.Produto
         public void IniciaFormulario()
         {
             lblTitulo = new Label();
-            lblTitulo.Text = "Lista de Itens no Almoxarifado";
-            lblTitulo.Location = new Point(250, 10);
+            lblTitulo.Text = "Lista de Almoxarifado";
+            lblTitulo.Location = new Point(122, 10);
             lblTitulo.Size = new Size(200, 20);
             lblTitulo.Font = new Font("TrebuchetMS", 14, FontStyle.Bold);
             lblTitulo.ForeColor = Color.Black;
@@ -31,7 +31,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             var dataGridView = new DataGridView();
             dataGridView.Location = new Point(50, 30);
-            dataGridView.Size = new Size(350, 400);
+            dataGridView.Size = new Size(343, 400);
             dataGridView.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             // configurar Colunas
             dataGridView.Columns.Add("id", "ID");
@@ -49,7 +49,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnIncluiAlmoxarifado = new Button();
             btnIncluiAlmoxarifado.Text = "Incluir";
-            btnIncluiAlmoxarifado.Location = new Point(10, 440);
+            btnIncluiAlmoxarifado.Location = new Point(60, 440);
             btnIncluiAlmoxarifado.Size = new Size(100, 30);
             btnIncluiAlmoxarifado.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnIncluiAlmoxarifado.ForeColor = Color.Black;
@@ -60,7 +60,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnAlteraAlmoxarifado = new Button();
             btnAlteraAlmoxarifado.Text = "Editar";
-            btnAlteraAlmoxarifado.Location = new Point(120, 440);
+            btnAlteraAlmoxarifado.Location = new Point(170, 440);
             btnAlteraAlmoxarifado.Size = new Size(100, 30);
             btnAlteraAlmoxarifado.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnAlteraAlmoxarifado.ForeColor = Color.Black;
@@ -71,7 +71,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnExcluiAlmoxarifado = new Button();
             btnExcluiAlmoxarifado.Text = "Excluir";
-            btnExcluiAlmoxarifado.Location = new Point(230, 440);
+            btnExcluiAlmoxarifado.Location = new Point(280, 440);
             btnExcluiAlmoxarifado.Size = new Size(100, 30);
             btnExcluiAlmoxarifado.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnExcluiAlmoxarifado.ForeColor = Color.Black;
@@ -84,7 +84,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnSair = new Button();
             btnSair.Text = "Sair";
-            btnSair.Location = new Point(230, 475);
+            btnSair.Location = new Point(280, 475);
             btnSair.Size = new Size(100, 30);
             btnSair.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnSair.ForeColor = Color.Black;
@@ -93,7 +93,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnRefresh = new Button();
             btnRefresh.Text = "Refresh";
-            btnRefresh.Location = new Point(10, 475);
+            btnRefresh.Location = new Point(60, 475);
             btnRefresh.Size = new Size(100, 30);
             btnRefresh.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnRefresh.ForeColor = Color.Black;
@@ -106,8 +106,8 @@ namespace cadastro_forms.View.Forms.Produto
             };
             this.Controls.Add(btnRefresh);
 
-            this.Text = "Lista de Itens no Almoxarifado";
-            this.Size = new Size(800, 600);
+            this.Text = "Lista de Almoxarifado";
+            this.Size = new Size(443, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.White;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;

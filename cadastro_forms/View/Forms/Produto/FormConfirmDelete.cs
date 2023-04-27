@@ -38,7 +38,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnNao);
 
             this.Text = "Confirma Delete";
-            this.Size = new Size(300, 320);
+            this.Size = new Size(250, 150);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -82,7 +82,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnNao);
 
             this.Text = "Confirma Delete";
-            this.Size = new Size(300, 320);
+            this.Size = new Size(200, 150);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -126,7 +126,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnNao);
 
             this.Text = "Confirma Delete";
-            this.Size = new Size(300, 320);
+            this.Size = new Size(200, 150);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

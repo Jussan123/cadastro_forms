@@ -79,7 +79,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnVoltarAoMenuProduto);
 
             this.Text = "Editar Produtos";
-            this.Size = new Size(500, 300);
+            this.Size = new Size(360, 200);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

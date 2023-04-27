@@ -14,7 +14,7 @@ namespace cadastro_forms.View.Forms.Produto
         Label lblTxtNomeProduto;
         Label lblTxtDescricaoProduto;
         Label lblTxtPrecoProduto;
-        TextBox tbProdutoId;
+        ComboBox cbProdutoId;
         TextBox tbNomeProduto;
         TextBox tbDescricaoProduto;
         TextBox tbPrecoProduto;
@@ -40,12 +40,20 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtProdutoId.ForeColor = Color.Black;
             this.Controls.Add(lblTxtProdutoId);
 
-            tbProdutoId = new TextBox();
-            tbProdutoId.Location = new Point(10, 60);
-            tbProdutoId.Size = new Size(30, 20);
-            tbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbProdutoId.ForeColor = Color.Black;
-            this.Controls.Add(tbProdutoId);
+            cbProdutoId = new ComboBox();
+            cbProdutoId.Location = new Point(10, 60);
+            cbProdutoId.Size = new Size(100, 20);
+            cbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            cbProdutoId.ForeColor = Color.Black;
+            List<ModelProduto.Produto> listaProduto = new List<ModelProduto.Produto>();
+            foreach (ModelProduto.Produto produto in ControllerProduto.Produto.ListaProdutos())
+            {
+                cbProdutoId.Items.Add(produto);
+            }
+            cbProdutoId.ValueMember = "Id";
+            cbProdutoId.DisplayMember = "Nome";
+            cbProdutoId.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.Controls.Add(cbProdutoId);
             
             lblTxtNomeProduto = new Label();
             lblTxtNomeProduto.Text = "Nome:";
@@ -94,7 +102,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnSalvarProduto = new Button();
             btnSalvarProduto.Text = "Salvar";
-            btnSalvarProduto.Location = new Point(10, 270);
+            btnSalvarProduto.Location = new Point(10, 230);
             btnSalvarProduto.Size = new Size(100, 20);
             btnSalvarProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnSalvarProduto.ForeColor = Color.Black;
@@ -106,7 +114,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnCancelarProduto = new Button();
             btnCancelarProduto.Text = "Cancelar";
-            btnCancelarProduto.Location = new Point(110, 270);
+            btnCancelarProduto.Location = new Point(120, 230);
             btnCancelarProduto.Size = new Size(100, 20);
             btnCancelarProduto.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnCancelarProduto.ForeColor = Color.Black;
@@ -115,7 +123,7 @@ namespace cadastro_forms.View.Forms.Produto
 
             btnSair = new Button();
             btnSair.Text = "Sair";
-            btnSair.Location = new Point(210, 270);
+            btnSair.Location = new Point(230, 230);
             btnSair.Size = new Size(100, 20);
             btnSair.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnSair.ForeColor = Color.Black;
@@ -123,12 +131,11 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnSair);
 
             this.Text = "Editar Produto";
-            this.Size = new Size(800, 600);
+            this.Size = new Size(350, 300);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-
         }
 
         public EditarProduto(){
@@ -140,7 +147,7 @@ namespace cadastro_forms.View.Forms.Produto
             try
             {
                 ModelProduto.Produto produto = new ModelProduto.Produto();
-                produto.Id = Convert.ToInt32(tbProdutoId.Text);
+                produto.Id = Convert.ToInt32(cbProdutoId.Text);
                 produto.Nome = tbNomeProduto.Text;
                 produto.Descricao = tbDescricaoProduto.Text;
                 produto.Preco = Convert.ToDecimal(tbPrecoProduto.Text);
@@ -169,7 +176,7 @@ namespace cadastro_forms.View.Forms.Produto
         Label lblNomeProduto;
         TextBox tbNomeProduto;
         Label lblProdutoId;
-        TextBox tbProdutoId;
+        ComboBox cbProdutoId;
         Button btnSalvar;
         Button btnCancelar;
         Button btnSair;
@@ -207,12 +214,20 @@ namespace cadastro_forms.View.Forms.Produto
             lblProdutoId.ForeColor = Color.Black;
             this.Controls.Add(lblProdutoId);
 
-            tbProdutoId = new TextBox();
-            tbProdutoId.Location = new Point(10, 100);
-            tbProdutoId.Size = new Size(20, 20);
-            tbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbProdutoId.ForeColor = Color.Black;
-            this.Controls.Add(tbProdutoId);
+            cbProdutoId = new ComboBox();
+            cbProdutoId.Location = new Point(10, 100);
+            cbProdutoId.Size = new Size(100, 20);
+            cbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            cbProdutoId.ForeColor = Color.Black;
+            List<ModelProduto.Produto> listaProduto = new List<ModelProduto.Produto>();
+            foreach (ModelProduto.Produto produto in ControllerProduto.Produto.ListaProdutos())
+            {
+                cbProdutoId.Items.Add(produto);
+            }
+            cbProdutoId.ValueMember = "Id";
+            cbProdutoId.DisplayMember = "Nome";
+            cbProdutoId.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.Controls.Add(cbProdutoId);
 
             btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -260,7 +275,7 @@ namespace cadastro_forms.View.Forms.Produto
         {
             ModelProduto.Produto produto = new ModelProduto.Produto();
             produto.Nome = tbNomeProduto.Text;
-            produto.Id = Convert.ToInt32(tbProdutoId.Text);
+            produto.Id = Convert.ToInt32(cbProdutoId.Text);
 
             ControllerProduto.Produto.AlteraNomeProduto(produto.Id, produto.Nome);
 
@@ -270,7 +285,7 @@ namespace cadastro_forms.View.Forms.Produto
         public void LimpaTela()
         {
             tbNomeProduto.Text = "";
-            tbProdutoId.Text = "";
+            cbProdutoId.Text = "";
         }
 
         public EditaNomeProduto()
@@ -285,7 +300,7 @@ namespace cadastro_forms.View.Forms.Produto
         Label lblDescricaoProduto;
         TextBox tbDescricaoProduto;
         Label lblProdutoId;
-        TextBox tbProdutoId;
+        ComboBox cbProdutoId;
         Button btnSalvar;
         Button btnCancelar;
         Button btnSair;
@@ -323,12 +338,20 @@ namespace cadastro_forms.View.Forms.Produto
             lblProdutoId.ForeColor = Color.Black;
             this.Controls.Add(lblProdutoId);
 
-            tbProdutoId = new TextBox();
-            tbProdutoId.Location = new Point(10, 100);
-            tbProdutoId.Size = new Size(20, 20);
-            tbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbProdutoId.ForeColor = Color.Black;
-            this.Controls.Add(tbProdutoId);
+            cbProdutoId = new ComboBox();
+            cbProdutoId.Location = new Point(10, 100);
+            cbProdutoId.Size = new Size(100, 20);
+            cbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            cbProdutoId.ForeColor = Color.Black;
+            List<ModelProduto.Produto> listaProduto = new List<ModelProduto.Produto>();
+            foreach (ModelProduto.Produto produto in ControllerProduto.Produto.ListaProdutos())
+            {
+                cbProdutoId.Items.Add(produto);
+            }
+            cbProdutoId.ValueMember = "Id";
+            cbProdutoId.DisplayMember = "Nome";
+            cbProdutoId.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.Controls.Add(cbProdutoId);
 
             btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -365,7 +388,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnSair);
 
             this.Text = "Editar Descrição do Produto";
-            this.Size = new Size(500, 300);
+            this.Size = new Size(350, 200);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -376,7 +399,7 @@ namespace cadastro_forms.View.Forms.Produto
         {
             ModelProduto.Produto produto = new ModelProduto.Produto();
             produto.Descricao = tbDescricaoProduto.Text;
-            produto.Id = Convert.ToInt32(tbProdutoId.Text);
+            produto.Id = Convert.ToInt32(cbProdutoId.Text);
 
             ControllerProduto.Produto.AlteraDescricaoProduto(produto.Id, produto.Descricao);
 
@@ -386,7 +409,7 @@ namespace cadastro_forms.View.Forms.Produto
         public void LimpaTela()
         {
             tbDescricaoProduto.Text = "";
-            tbProdutoId.Text = "";
+            cbProdutoId.Text = "";
         }
 
         public EditaDescricaoProduto()
@@ -401,7 +424,7 @@ namespace cadastro_forms.View.Forms.Produto
         Label lblPrecoProduto;
         TextBox tbPrecoProduto;
         Label lblProdutoId;
-        TextBox tbProdutoId;
+        ComboBox cbProdutoId;
         Button btnSalvar;
         Button btnCancelar;
         Button btnSair;
@@ -439,12 +462,20 @@ namespace cadastro_forms.View.Forms.Produto
             lblProdutoId.ForeColor = Color.Black;
             this.Controls.Add(lblProdutoId);
 
-            tbProdutoId = new TextBox();
-            tbProdutoId.Location = new Point(10, 100);
-            tbProdutoId.Size = new Size(20, 20);
-            tbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            tbProdutoId.ForeColor = Color.Black;
-            this.Controls.Add(tbProdutoId);
+            cbProdutoId = new ComboBox();
+            cbProdutoId.Location = new Point(10, 100);
+            cbProdutoId.Size = new Size(100, 20);
+            cbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            cbProdutoId.ForeColor = Color.Black;
+            List<ModelProduto.Produto> listaProduto = new List<ModelProduto.Produto>();
+            foreach (ModelProduto.Produto produto in ControllerProduto.Produto.ListaProdutos())
+            {
+                cbProdutoId.Items.Add(produto);
+            }
+            cbProdutoId.ValueMember = "Id";
+            cbProdutoId.DisplayMember = "Nome";
+            cbProdutoId.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.Controls.Add(cbProdutoId);
 
             btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -479,7 +510,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnSair);
 
             this.Text = "Editar Preço do Produto";
-            this.Size = new Size(500, 300);
+            this.Size = new Size(350, 200);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -490,7 +521,7 @@ namespace cadastro_forms.View.Forms.Produto
         {
             ModelProduto.Produto produto = new ModelProduto.Produto();
             produto.Preco = Convert.ToDecimal(tbPrecoProduto.Text);
-            produto.Id = Convert.ToInt32(tbProdutoId.Text);
+            produto.Id = Convert.ToInt32(cbProdutoId.Text);
 
             ControllerProduto.Produto.AlteraPrecoProduto(produto.Id, produto.Preco);
 
@@ -500,7 +531,7 @@ namespace cadastro_forms.View.Forms.Produto
         public void LimpaTela()
         {
             tbPrecoProduto.Text = "";
-            tbProdutoId.Text = "";
+            cbProdutoId.Text = "";
         }
 
         public EditaPrecoProduto()

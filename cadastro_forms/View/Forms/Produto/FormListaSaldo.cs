@@ -38,14 +38,22 @@ namespace cadastro_forms.View.Forms.Produto
 
             var dataGridView = new DataGridView();
             dataGridView.Location = new Point(50, 60);
-            dataGridView.Size = new Size(700, 400);
+            dataGridView.Size = new Size(773, 400);
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                // alinhar o conteúdo das células no centro
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                // permite que o conteúdo das células seja ajustado automaticamente
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
             dataGridView.Columns.Add("Id", "ID");
-            dataGridView.Columns.Add("ProdutoId", "ID-Produto");
-            dataGridView.Columns.Add("NomeProduto", "Nome-Produto");
-            dataGridView.Columns.Add("AlmoxarifadoId", "ID-Almoxarifado");
-            dataGridView.Columns.Add("NomeAlmoxarifado", "Nome-Almoxarifado");
+            dataGridView.Columns.Add("ProdutoId", "ID Produto");
+            dataGridView.Columns.Add("NomeProduto", "Produto");
+            dataGridView.Columns.Add("AlmoxarifadoId", "ID Almoxarifado");
+            dataGridView.Columns.Add("NomeAlmoxarifado", "Almoxarifado");
             dataGridView.Columns.Add("Quantidade", "Quantidade");
-            dataGridView.Columns.Add("DataUltimaAtualizacao", "Data-Atualização");
+            dataGridView.Columns.Add("DataUltimaAtualizacao", "Data Atualização");
+            dataGridView.Columns["DataUltimaAtualizacao"].MinimumWidth = 130;
             foreach (var saldo in ControllerProduto.Saldo.ListarSaldo())
             {
                 dataGridView.Rows.Add(saldo.Id, saldo.ProdutoId, saldo.Produto, saldo.AlmoxarifadoId, saldo.Almoxarifado, saldo.Quantidade, saldo.DataUltimaAtualizacao);
@@ -116,7 +124,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnRefresh);
 
             this.Text = "Listagem de Saldos";
-            this.Size = new Size(800, 600);
+            this.Size = new Size(873, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

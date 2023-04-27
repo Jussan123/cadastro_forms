@@ -24,15 +24,15 @@ namespace cadastro_forms.View.Forms.Produto
         {
             lblTituloLista = new Label();
             lblTituloLista.Text = "Lista de Produtos";
-            lblTituloLista.Location = new Point(10, 10);
+            lblTituloLista.Location = new Point(100, 10);
             lblTituloLista.Size = new Size(200, 20);
-            lblTituloLista.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            lblTituloLista.Font = new Font("TrebuchetMS", 12, FontStyle.Bold);
             lblTituloLista.ForeColor = Color.Black;
             this.Controls.Add(lblTituloLista);
 
             var dataGridView = new DataGridView();
-            dataGridView.Location = new Point(10, 40);
-            dataGridView.Size = new Size(550, 340);
+            dataGridView.Location = new Point(50, 40);
+            dataGridView.Size = new Size(443, 340);
 
             // Configura as colunas da tabela
             dataGridView.Columns.Add("Id", "ID");
@@ -112,7 +112,7 @@ namespace cadastro_forms.View.Forms.Produto
             this.Controls.Add(btnRefresh);
 
             this.Text = "Lista de Produtos";
-            this.Size = new Size(800, 500);
+            this.Size = new Size(575, 500);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

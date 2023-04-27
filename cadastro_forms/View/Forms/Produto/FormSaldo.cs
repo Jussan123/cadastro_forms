@@ -13,8 +13,8 @@ namespace cadastro_forms.View.Forms.Produto
         Label lblTxtProdutoId;
         Label lblTxtAlmoxarifadoId;
         Label lblTxtQuantidade;
-        ComboBox txtProdutoId;
-        ComboBox txtAlmoxarifadoId;
+        ComboBox cbProdutoId;
+        ComboBox cbAlmoxarifadoId;
         TextBox txtQuantidade;
         Button btnSalvar;
         Button btnCancelar;
@@ -38,20 +38,20 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtProdutoId.ForeColor = Color.Black;
             this.Controls.Add(lblTxtProdutoId);
 
-            txtProdutoId = new ComboBox();
-            txtProdutoId.Location = new Point(10, 50);
-            txtProdutoId.Size = new Size(200, 20);
-            txtProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            txtProdutoId.ForeColor = Color.Black;
+            cbProdutoId = new ComboBox();
+            cbProdutoId.Location = new Point(10, 50);
+            cbProdutoId.Size = new Size(200, 20);
+            cbProdutoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            cbProdutoId.ForeColor = Color.Black;
             List<ModelProduto.Produto> listaProduto = new List<ModelProduto.Produto>();
             foreach (ModelProduto.Produto produto in ControllerProduto.Produto.ListaProdutos())
             {
-                txtProdutoId.Items.Add(produto);
+                cbProdutoId.Items.Add(produto);
             }
-            txtProdutoId.ValueMember = "Id";
-            txtProdutoId.DisplayMember = "Nome";
-            txtProdutoId.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.Controls.Add(txtProdutoId);
+            cbProdutoId.ValueMember = "Id";
+            cbProdutoId.DisplayMember = "Nome";
+            cbProdutoId.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.Controls.Add(cbProdutoId);
 
             lblTxtAlmoxarifadoId = new Label();
             lblTxtAlmoxarifadoId.Text = "Id Almoxarifado:";
@@ -61,21 +61,21 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtAlmoxarifadoId.ForeColor = Color.Black;
             this.Controls.Add(lblTxtAlmoxarifadoId);
 
-            txtAlmoxarifadoId = new ComboBox();
-            txtAlmoxarifadoId.Location = new Point(10, 100);
-            txtAlmoxarifadoId.Size = new Size(200, 20);
-            txtAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
-            txtAlmoxarifadoId.ForeColor = Color.Black;
+            cbAlmoxarifadoId = new ComboBox();
+            cbAlmoxarifadoId.Location = new Point(10, 100);
+            cbAlmoxarifadoId.Size = new Size(200, 20);
+            cbAlmoxarifadoId.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
+            cbAlmoxarifadoId.ForeColor = Color.Black;
             
             List<ModelProduto.Almoxarifado> listaAlmoxarifado = new List<ModelProduto.Almoxarifado>();
             foreach (ModelProduto.Almoxarifado almoxarifado in ControllerProduto.Almoxarifado.ListaAlmoxarifado())
             {
-                txtAlmoxarifadoId.Items.Add(almoxarifado);
+                cbAlmoxarifadoId.Items.Add(almoxarifado);
             }
-            txtAlmoxarifadoId.ValueMember = "Id";
-            txtAlmoxarifadoId.DisplayMember = "Nome";
-            txtAlmoxarifadoId.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.Controls.Add(txtAlmoxarifadoId);
+            cbAlmoxarifadoId.ValueMember = "Id";
+            cbAlmoxarifadoId.DisplayMember = "Nome";
+            cbAlmoxarifadoId.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.Controls.Add(cbAlmoxarifadoId);
 
             lblTxtQuantidade = new Label();
             lblTxtQuantidade.Text = "Quantidade:";
@@ -140,8 +140,8 @@ namespace cadastro_forms.View.Forms.Produto
         public void SalvarSaldo()
         {
             ModelProduto.Saldo saldo = new ModelProduto.Saldo();
-            var produtoSelecionado = (ModelProduto.Produto) txtProdutoId.SelectedItem;
-            var almoxarifadoSelecionado = (ModelProduto.Almoxarifado) txtAlmoxarifadoId.SelectedItem;
+            var produtoSelecionado = (ModelProduto.Produto) cbProdutoId.SelectedItem;
+            var almoxarifadoSelecionado = (ModelProduto.Almoxarifado) cbAlmoxarifadoId.SelectedItem;
             if(produtoSelecionado == null || almoxarifadoSelecionado == null)
             {
                 MessageBox.Show("Selecione um produto e um almoxarifado");
@@ -178,8 +178,8 @@ namespace cadastro_forms.View.Forms.Produto
 
         public void LimpaTela()
         {
-            txtProdutoId.SelectedIndex = -1;
-            txtAlmoxarifadoId.SelectedIndex = -1;
+            cbProdutoId.SelectedIndex = -1;
+            cbAlmoxarifadoId.SelectedIndex = -1;
             txtQuantidade.Text = "";
         }
     }
