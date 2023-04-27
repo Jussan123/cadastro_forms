@@ -147,7 +147,13 @@ namespace cadastro_forms.View.Forms.Produto
             try
             {
                 ModelProduto.Produto produto = new ModelProduto.Produto();
-                produto.Id = Convert.ToInt32(cbProdutoId.Text);
+                var produtoSelecionado = (ModelProduto.Produto) cbProdutoId.SelectedItem;
+                if(produtoSelecionado == null)
+                {
+                    MessageBox.Show("Selecione um produto!");
+                    return;
+                }
+                produto.Id = Convert.ToInt32(produtoSelecionado.Id);
                 produto.Nome = tbNomeProduto.Text;
                 produto.Descricao = tbDescricaoProduto.Text;
                 produto.Preco = Convert.ToDecimal(tbPrecoProduto.Text);
@@ -274,11 +280,15 @@ namespace cadastro_forms.View.Forms.Produto
         public void SalvarNomeProduto()
         {
             ModelProduto.Produto produto = new ModelProduto.Produto();
+            var produtoSelecionado = (ModelProduto.Produto) cbProdutoId.SelectedItem;
+            if(produtoSelecionado == null)
+            {
+                MessageBox.Show("Selecione um produto!");
+                return;
+            }
+            produto.Id = Convert.ToInt32(produtoSelecionado.Id);
             produto.Nome = tbNomeProduto.Text;
-            produto.Id = Convert.ToInt32(cbProdutoId.Text);
-
             ControllerProduto.Produto.AlteraNomeProduto(produto.Id, produto.Nome);
-
             MessageBox.Show("Nome do produto editado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -398,11 +408,15 @@ namespace cadastro_forms.View.Forms.Produto
         public void SalvarDescricaoProduto()
         {
             ModelProduto.Produto produto = new ModelProduto.Produto();
+            var produtoSelecionado = (ModelProduto.Produto) cbProdutoId.SelectedItem;
+            if(produtoSelecionado == null)
+            {
+                MessageBox.Show("Selecione um produto!");
+                return;
+            }
+            produto.Id = Convert.ToInt32(produtoSelecionado.Id);
             produto.Descricao = tbDescricaoProduto.Text;
-            produto.Id = Convert.ToInt32(cbProdutoId.Text);
-
             ControllerProduto.Produto.AlteraDescricaoProduto(produto.Id, produto.Descricao);
-
             MessageBox.Show("Descrição do produto editada com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         
@@ -520,11 +534,15 @@ namespace cadastro_forms.View.Forms.Produto
         public void SalvarPrecoProduto()
         {
             ModelProduto.Produto produto = new ModelProduto.Produto();
+            var produtoSelecionado = (ModelProduto.Produto) cbProdutoId.SelectedItem;
+            if(produtoSelecionado == null)
+            {
+                MessageBox.Show("Selecione um produto!");
+                return;
+            }
+            produto.Id = Convert.ToInt32(produtoSelecionado.Id);
             produto.Preco = Convert.ToDecimal(tbPrecoProduto.Text);
-            produto.Id = Convert.ToInt32(cbProdutoId.Text);
-
             ControllerProduto.Produto.AlteraPrecoProduto(produto.Id, produto.Preco);
-
             MessageBox.Show("Preço do produto editado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
