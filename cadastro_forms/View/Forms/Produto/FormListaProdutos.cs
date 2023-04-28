@@ -19,7 +19,7 @@ namespace cadastro_forms.View.Forms.Produto
         Button btneditaProduto;
         Button btnVoltarMenu;
         Button btnRefresh;
-        DataGridView dataGridView;
+        DataGridView dataGridView; // Tabela de dados
         
         public void IniciaFormulario()
         {
