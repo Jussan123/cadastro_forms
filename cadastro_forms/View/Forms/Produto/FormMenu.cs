@@ -74,9 +74,8 @@ namespace cadastro_forms.View.Forms.Produto
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-       } 
-
-
+        }
+        
         public FormMenu()
         {
             IniciaFormulario();

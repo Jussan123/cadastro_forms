@@ -18,6 +18,7 @@ namespace cadastro_forms.View.Forms.Produto
         Button btnExcluiAlmoxarifado;
         Button btnSair;
         Button btnRefresh;
+        DataGridView dataGridView;
 
         public void IniciaFormulario()
         {
@@ -29,7 +30,7 @@ namespace cadastro_forms.View.Forms.Produto
             lblTitulo.ForeColor = Color.Black;
             this.Controls.Add(lblTitulo);
 
-            var dataGridView = new DataGridView();
+            dataGridView = new DataGridView();
             dataGridView.Location = new Point(50, 30);
             dataGridView.Size = new Size(343, 400);
             dataGridView.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
@@ -55,6 +56,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnIncluiAlmoxarifado.ForeColor = Color.Black;
             btnIncluiAlmoxarifado.Click += (sender, e) => {
                 AbrirForm(new FormAlmoxarifado());
+                this.minhaLista();
             };
             this.Controls.Add(btnIncluiAlmoxarifado);
 
@@ -66,6 +68,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnAlteraAlmoxarifado.ForeColor = Color.Black;
             btnAlteraAlmoxarifado.Click += (sender, e) => {
                 AbrirForm(new FormEditaAlmoxarifado());
+                this.minhaLista();
             };
             this.Controls.Add(btnAlteraAlmoxarifado);
 
@@ -79,6 +82,7 @@ namespace cadastro_forms.View.Forms.Produto
                 var id = dataGridView.CurrentRow.Cells[0].Value;
                 dataGridView.Rows.RemoveAt(dataGridView.CurrentRow.Index);
                 AbrirForm(new FormConfirmDeleteAlmoxarifado(Convert.ToInt32(id)));
+                this.minhaLista();
             };
             this.Controls.Add(btnExcluiAlmoxarifado);
 
@@ -97,13 +101,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnRefresh.Size = new Size(100, 30);
             btnRefresh.Font = new Font("TrebuchetMS", 10, FontStyle.Bold);
             btnRefresh.ForeColor = Color.Black;
-            btnRefresh.Click += (sender, e) => {
-                dataGridView.Rows.Clear();
-                foreach (var almoxarifado in ControllerProduto.Almoxarifado.ListaAlmoxarifado())
-                {
-                    dataGridView.Rows.Add(almoxarifado.Id, almoxarifado.Nome, almoxarifado.Localizacao);
-                }                
-            };
+            btnRefresh.Click += (sender, e) => this.minhaLista();
             this.Controls.Add(btnRefresh);
 
             this.Text = "Lista de Almoxarifado";
@@ -123,6 +121,15 @@ namespace cadastro_forms.View.Forms.Produto
         public void AbrirForm(Form form)
         {
             form.ShowDialog();
+        }
+
+        public void minhaLista()
+        {
+            dataGridView.Rows.Clear();
+            foreach (var almoxarifado in ControllerProduto.Almoxarifado.ListaAlmoxarifado())
+            {
+                dataGridView.Rows.Add(almoxarifado.Id, almoxarifado.Nome, almoxarifado.Localizacao);
+            }                
         }
     }
 }

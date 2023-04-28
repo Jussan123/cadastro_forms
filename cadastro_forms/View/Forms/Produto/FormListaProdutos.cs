@@ -19,6 +19,7 @@ namespace cadastro_forms.View.Forms.Produto
         Button btneditaProduto;
         Button btnVoltarMenu;
         Button btnRefresh;
+        DataGridView dataGridView;
         
         public void IniciaFormulario()
         {
@@ -30,7 +31,7 @@ namespace cadastro_forms.View.Forms.Produto
             lblTituloLista.ForeColor = Color.Black;
             this.Controls.Add(lblTituloLista);
 
-            var dataGridView = new DataGridView();
+            dataGridView = new DataGridView();
             dataGridView.Location = new Point(50, 40);
             dataGridView.Size = new Size(443, 340);
 
@@ -60,6 +61,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnincluiProduto.ForeColor = Color.Black;
             btnincluiProduto.Click += (sender, e) => {
                 AbrirForm( new FormProduto());
+                this.minhaLista();
             };
             this.Controls.Add(btnincluiProduto);
 
@@ -73,6 +75,7 @@ namespace cadastro_forms.View.Forms.Produto
                 var id = dataGridView.CurrentRow.Cells[0].Value;
                 dataGridView.Rows.RemoveAt(dataGridView.CurrentRow.Index);
                 AbrirForm( new FormConfirmDelete(Convert.ToInt32(id)));
+                this.minhaLista();
             };
             this.Controls.Add(btnexcluiProduto);
 
@@ -84,6 +87,7 @@ namespace cadastro_forms.View.Forms.Produto
             btneditaProduto.ForeColor = Color.Black;
             btneditaProduto.Click += (sender, e) => {
                 AbrirForm( new FormEditaProdutos());
+                this.minhaLista();
             };
             this.Controls.Add(btneditaProduto);
 
@@ -102,13 +106,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnRefresh.Size = new Size(100, 30);
             btnRefresh.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnRefresh.ForeColor = Color.Black;
-            btnRefresh.Click += (sender, e) => {
-                dataGridView.Rows.Clear();
-                foreach (var produto in ControllerProduto.Produto.ListaProdutos())
-                {
-                    dataGridView.Rows.Add(produto.Id, produto.Nome, produto.Descricao, produto.Preco);
-                }
-            };
+            btnRefresh.Click += (sender, e) => this.minhaLista();
             this.Controls.Add(btnRefresh);
 
             this.Text = "Lista de Produtos";
@@ -126,6 +124,15 @@ namespace cadastro_forms.View.Forms.Produto
         
         public void AbrirForm(Form form){
             form.ShowDialog();
+        }
+
+        public void minhaLista()
+        {
+            dataGridView.Rows.Clear();
+            foreach (var produto in ControllerProduto.Produto.ListaProdutos())
+            {
+                dataGridView.Rows.Add(produto.Id, produto.Nome, produto.Descricao, produto.Preco);
+            }
         }
     }
 }

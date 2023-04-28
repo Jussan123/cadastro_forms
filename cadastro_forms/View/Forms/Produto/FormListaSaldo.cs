@@ -17,6 +17,7 @@ namespace cadastro_forms.View.Forms.Produto
         Button btnExcluir;
         Button btnSair;
         Button btnRefresh;
+        DataGridView dataGridView;
 
         public void IniciaFormulario()
         {
@@ -36,7 +37,7 @@ namespace cadastro_forms.View.Forms.Produto
             lblTxtLista.ForeColor = Color.Black;
             this.Controls.Add(lblTxtLista);
 
-            var dataGridView = new DataGridView();
+            dataGridView = new DataGridView();
             dataGridView.Location = new Point(50, 60);
             dataGridView.Size = new Size(773, 400);
             foreach (DataGridViewColumn column in dataGridView.Columns)
@@ -54,10 +55,7 @@ namespace cadastro_forms.View.Forms.Produto
             dataGridView.Columns.Add("Quantidade", "Quantidade");
             dataGridView.Columns.Add("DataUltimaAtualizacao", "Data Atualização");
             dataGridView.Columns["DataUltimaAtualizacao"].MinimumWidth = 130;
-            foreach (var saldo in ControllerProduto.Saldo.ListarSaldo())
-            {
-                dataGridView.Rows.Add(saldo.Id, saldo.ProdutoId, saldo.Produto, saldo.AlmoxarifadoId, saldo.Almoxarifado, saldo.Quantidade, saldo.DataUltimaAtualizacao);
-            }
+            this.minhaLista();
             dataGridView.DefaultCellStyle.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             dataGridView.DefaultCellStyle.ForeColor = Color.Black;
             this.Controls.Add(dataGridView);
@@ -70,6 +68,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnIncluir.ForeColor = Color.Black;
             btnIncluir.Click += (sender, e) => {
                 AbrirFormulario(new FormSaldo());
+                this.minhaLista();
             };
             this.Controls.Add(btnIncluir);
 
@@ -81,6 +80,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnAlterar.ForeColor = Color.Black;
             btnAlterar.Click += (sender, e) => {
                 AbrirFormulario(new EditarSaldo());
+                this.minhaLista();
             };
             this.Controls.Add(btnAlterar);
 
@@ -94,6 +94,7 @@ namespace cadastro_forms.View.Forms.Produto
                 var id = dataGridView.CurrentRow.Cells[0].Value.ToString();
                 dataGridView.Rows.RemoveAt(dataGridView.CurrentRow.Index);
                 AbrirFormulario(new FormConfirmeDeleteSaldo(Convert.ToInt32(id)));
+                this.minhaLista();
             };
             this.Controls.Add(btnExcluir);
 
@@ -114,13 +115,7 @@ namespace cadastro_forms.View.Forms.Produto
             btnRefresh.Size = new Size(60, 20);
             btnRefresh.Font = new Font("TrebuchetMS", 8, FontStyle.Bold);
             btnRefresh.ForeColor = Color.Black;
-            btnRefresh.Click += (sender, e) => {
-                dataGridView.Rows.Clear();
-                foreach (var saldo in ControllerProduto.Saldo.ListarSaldo())
-                {
-                    dataGridView.Rows.Add(saldo.Id, saldo.ProdutoId, saldo.Produto, saldo.AlmoxarifadoId, saldo.Almoxarifado, saldo.Quantidade, saldo.DataUltimaAtualizacao);
-                }
-            };
+            btnRefresh.Click += (sender, e) => this.minhaLista();
             this.Controls.Add(btnRefresh);
 
             this.Text = "Listagem de Saldos";
@@ -139,6 +134,15 @@ namespace cadastro_forms.View.Forms.Produto
         public FormListaSaldo()
         {
             IniciaFormulario();
+        }
+
+        public void minhaLista()
+        {
+            dataGridView.Rows.Clear();
+            foreach (var saldo in ControllerProduto.Saldo.ListarSaldo())
+            {
+                dataGridView.Rows.Add(saldo.Id, saldo.ProdutoId, saldo.Produto, saldo.AlmoxarifadoId, saldo.Almoxarifado, saldo.Quantidade, saldo.DataUltimaAtualizacao);
+            }
         }
     }
 }
